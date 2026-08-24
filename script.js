@@ -1,98 +1,335 @@
-// VaaYU Portfolio — Interactive Layer
+// ===============================
+// VaaYU Portfolio
+// Interactive Effects
+// ===============================
+
+
+// ===============================
+// NAVBAR
+// ===============================
 
 const navbar = document.querySelector(".navbar");
-const progress = document.querySelector(".scroll-progress");
-const glow = document.querySelector(".cursor-glow");
-const year = document.querySelector("#year");
 
-// Dynamic year
-if (year) year.textContent = new Date().getFullYear();
+window.addEventListener("scroll", () => {
 
-// Navbar + scroll progress
-function onScroll() {
-    const scrollTop = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = max > 0 ? (scrollTop / max) * 100 : 0;
+    if (!navbar) return;
 
-    progress.style.width = `${percent}%`;
-    navbar.classList.toggle("scrolled", scrollTop > 30);
-}
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+    if (window.scrollY > 40) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
 
-// Cursor spotlight on desktop
-if (glow && window.matchMedia("(pointer:fine)").matches) {
-    window.addEventListener("pointermove", (e) => {
-        glow.style.left = `${e.clientX}px`;
-        glow.style.top = `${e.clientY}px`;
-    });
-}
-
-// Reveal-on-scroll
-const revealItems = document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.12 });
-
-revealItems.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
-    observer.observe(item);
 });
 
-// Active navigation based on section
-const sections = document.querySelectorAll("main section[id]");
-const navLinks = document.querySelectorAll(".navbar nav a");
 
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach((link) => {
-            link.classList.toggle(
-                "active",
-                link.getAttribute("href") === `#${entry.target.id}`
-            );
+// ===============================
+// SCROLL PROGRESS
+// ===============================
+
+const progress = document.querySelector(".scroll-progress");
+
+window.addEventListener("scroll", () => {
+
+    if (!progress) return;
+
+    const scrollTop = window.scrollY;
+
+    const height =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const percentage =
+        height > 0
+            ? (scrollTop / height) * 100
+            : 0;
+
+    progress.style.width = `${percentage}%`;
+
+});
+
+
+// ===============================
+// REVEAL ON SCROLL
+// ===============================
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal, .project-card, .skill-card"
+    );
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
         });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+
+revealElements.forEach((element) => {
+
+    observer.observe(element);
+
+});
+
+
+// ===============================
+// PROJECT 3D TILT
+// ===============================
+
+const projects =
+    document.querySelectorAll(".project-card");
+
+
+projects.forEach((project) => {
+
+    project.addEventListener("mousemove", (event) => {
+
+        if (window.innerWidth < 768) return;
+
+        const rect =
+            project.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height;
+
+        const rotateY =
+            (x - 0.5) * 4;
+
+        const rotateX =
+            (0.5 - y) * 4;
+
+        project.style.transform =
+            `perspective(1200px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-4px)`;
+
     });
-}, { rootMargin: "-35% 0px -55% 0px" });
 
-sections.forEach((section) => sectionObserver.observe(section));
 
-// Subtle 3D tilt on skill cards
-if (window.matchMedia("(pointer:fine)").matches) {
-    document.querySelectorAll(".tilt").forEach((card) => {
-        card.addEventListener("pointermove", (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
+    project.addEventListener("mouseleave", () => {
 
-            card.style.transform =
-                `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-4px)`;
-        });
+        project.style.transform =
+            "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)";
 
-        card.addEventListener("pointerleave", () => {
-            card.style.transform = "";
-        });
     });
+
+});
+
+
+// ===============================
+// SKILL CARD TILT
+// ===============================
+
+const skills =
+    document.querySelectorAll(".skill-card");
+
+
+skills.forEach((card) => {
+
+    card.addEventListener("mousemove", (event) => {
+
+        if (window.innerWidth < 768) return;
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height;
+
+        const rotateY =
+            (x - 0.5) * 5;
+
+        const rotateX =
+            (0.5 - y) * 5;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-5px)`;
+
+    });
+
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+
+    });
+
+});
+
+
+// ===============================
+// CURSOR GLOW
+// ===============================
+
+const cursorGlow =
+    document.querySelector(".cursor-glow");
+
+
+if (cursorGlow) {
+
+    window.addEventListener("mousemove", (event) => {
+
+        cursorGlow.style.left =
+            `${event.clientX}px`;
+
+        cursorGlow.style.top =
+            `${event.clientY}px`;
+
+    });
+
 }
 
-// Magnetic buttons/cards
-if (window.matchMedia("(pointer:fine)").matches) {
-    document.querySelectorAll(".magnetic").forEach((el) => {
-        el.addEventListener("pointermove", (e) => {
-            const rect = el.getBoundingClientRect();
-            const x = e.clientX - (rect.left + rect.width / 2);
-            const y = e.clientY - (rect.top + rect.height / 2);
-            el.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px)`;
+
+// ===============================
+// MAGNETIC BUTTONS
+// ===============================
+
+const magneticElements =
+    document.querySelectorAll(".magnetic");
+
+
+magneticElements.forEach((element) => {
+
+    element.addEventListener("mousemove", (event) => {
+
+        if (window.innerWidth < 768) return;
+
+        const rect =
+            element.getBoundingClientRect();
+
+        const x =
+            event.clientX -
+            (rect.left + rect.width / 2);
+
+        const y =
+            event.clientY -
+            (rect.top + rect.height / 2);
+
+        element.style.transform =
+            `translate(${x * 0.08}px, ${y * 0.08}px)`;
+
+    });
+
+
+    element.addEventListener("mouseleave", () => {
+
+        element.style.transform =
+            "translate(0, 0)";
+
+    });
+
+});
+
+
+// ===============================
+// SMOOTH ANCHOR SCROLL
+// ===============================
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+        const targetId =
+            link.getAttribute("href");
+
+        if (!targetId || targetId === "#") {
+            return;
+        }
+
+        const target =
+            document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
 
-        el.addEventListener("pointerleave", () => {
-            el.style.transform = "";
-        });
     });
+
+});
+
+
+// ===============================
+// DYNAMIC YEAR
+// ===============================
+
+const year =
+    document.querySelector("#year");
+
+
+if (year) {
+
+    year.textContent =
+        new Date().getFullYear();
+
+}
+
+
+// ===============================
+// PROJECT LINK FEEDBACK
+// ===============================
+
+document.querySelectorAll(
+    ".project-link"
+).forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+        link.classList.add("clicked");
+
+        setTimeout(() => {
+
+            link.classList.remove("clicked");
+
+        }, 500);
+
+    });
+
+});
+
+
+// ===============================
+// DISABLE HEAVY EFFECTS ON MOBILE
+// ===============================
+
+if (window.innerWidth < 768) {
+
+    document.body.classList.add("mobile");
+
 }
