@@ -1,122 +1,217 @@
 // ===============================
 // VaaYU Portfolio
-// Interactive Effects + Theme
+// Interactive Effects
 // ===============================
 
 
 // ===============================
-// NAVBAR
+// NAVBAR SCROLL EFFECT
 // ===============================
 
 const navbar = document.querySelector(".navbar");
 
-window.addEventListener("scroll", () => {
+function updateNavbar() {
+
     if (!navbar) return;
 
-    navbar.classList.toggle("scrolled", window.scrollY > 40);
+    if (window.scrollY > 40) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+
+}
+
+window.addEventListener("scroll", updateNavbar, {
+    passive: true
 });
+
+updateNavbar();
 
 
 // ===============================
 // SCROLL PROGRESS
 // ===============================
 
-const progress = document.querySelector(".scroll-progress");
+const progress =
+    document.querySelector(".scroll-progress");
 
 function updateScrollProgress() {
+
     if (!progress) return;
 
     const scrollTop = window.scrollY;
-    const height =
+
+    const scrollHeight =
         document.documentElement.scrollHeight -
         window.innerHeight;
 
-    const percentage =
-        height > 0
-            ? (scrollTop / height) * 100
-            : 0;
+    if (scrollHeight <= 0) {
 
-    progress.style.width = `${percentage}%`;
+        progress.style.width = "0%";
+
+        return;
+    }
+
+    const percentage =
+        (scrollTop / scrollHeight) * 100;
+
+    progress.style.width =
+        `${Math.min(100, Math.max(0, percentage))}%`;
+
 }
 
-window.addEventListener("scroll", updateScrollProgress, {
-    passive: true
-});
+window.addEventListener(
+    "scroll",
+    updateScrollProgress,
+    { passive: true }
+);
+
+updateScrollProgress();
 
 
 // ===============================
 // THEME TOGGLE
 // ===============================
+//
+// IMPORTANT:
+// Theme button ID:
+// #themeToggle
+//
+// Theme class:
+// body.light-theme
+//
+// Saved preference:
+// localStorage
+// ===============================
 
-const themeToggle = document.querySelector("#themeToggle");
+const themeToggle =
+    document.getElementById("themeToggle");
 
-function applyTheme(theme) {
-    const isLight = theme === "light";
+function setTheme(theme) {
 
-    document.documentElement.classList.toggle(
-        "light-theme",
-        isLight
-    );
+    const isLight =
+        theme === "light";
 
     document.body.classList.toggle(
         "light-theme",
         isLight
     );
 
+    document.documentElement.classList.toggle(
+        "light-theme",
+        isLight
+    );
+
     if (themeToggle) {
+
+        const icon =
+            themeToggle.querySelector(
+                ".theme-toggle-icon i"
+            );
+
+        if (icon) {
+
+            icon.classList.remove(
+                "fa-sun",
+                "fa-moon"
+            );
+
+            icon.classList.add(
+                isLight
+                    ? "fa-moon"
+                    : "fa-sun"
+            );
+
+        }
+
+        themeToggle.setAttribute(
+            "aria-pressed",
+            String(isLight)
+        );
+
         themeToggle.setAttribute(
             "aria-label",
             isLight
-                ? "Switch to dark mode"
-                : "Switch to light mode"
+                ? "Switch to dark theme"
+                : "Switch to light theme"
         );
 
         themeToggle.setAttribute(
             "title",
             isLight
-                ? "Switch to dark mode"
-                : "Switch to light mode"
+                ? "Switch to dark theme"
+                : "Switch to light theme"
         );
 
-        // Supports either icon style
-        const icon = themeToggle.querySelector(
-            "i, svg, .theme-icon"
-        );
-
-        if (icon) {
-            icon.textContent = isLight ? "☀" : "☾";
-        }
     }
 
-    localStorage.setItem("portfolio-theme", theme);
+    try {
+
+        localStorage.setItem(
+            "portfolio-theme",
+            isLight
+                ? "light"
+                : "dark"
+        );
+
+    } catch (error) {
+
+        console.warn(
+            "Theme preference could not be saved."
+        );
+
+    }
+
 }
 
 
 // Load saved theme
-const savedTheme =
-    localStorage.getItem("portfolio-theme");
 
-if (savedTheme === "light") {
-    applyTheme("light");
-} else {
-    applyTheme("dark");
+let savedTheme = "dark";
+
+try {
+
+    savedTheme =
+        localStorage.getItem(
+            "portfolio-theme"
+        ) || "dark";
+
+} catch (error) {
+
+    savedTheme = "dark";
+
 }
 
+setTheme(
+    savedTheme === "light"
+        ? "light"
+        : "dark"
+);
 
-// Toggle theme on button click
+
+// Theme button click
+
 if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
 
-        const isLight =
-            document.documentElement.classList.contains(
-                "light-theme"
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            const isCurrentlyLight =
+                document.body.classList.contains(
+                    "light-theme"
+                );
+
+            setTheme(
+                isCurrentlyLight
+                    ? "dark"
+                    : "light"
             );
 
-        applyTheme(
-            isLight ? "dark" : "light"
-        );
+        }
+    );
 
-    });
 }
 
 
@@ -129,40 +224,52 @@ const revealElements =
         ".reveal, .project-card, .skill-card"
     );
 
+
 if ("IntersectionObserver" in window) {
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+    const revealObserver =
+        new IntersectionObserver(
+            (entries) => {
 
-            entries.forEach((entry) => {
+                entries.forEach((entry) => {
 
-                if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-                    observer.unobserve(
-                        entry.target
-                    );
-                }
+                        revealObserver.unobserve(
+                            entry.target
+                        );
 
-            });
+                    }
 
-        },
-        {
-            threshold: 0.12
-        }
-    );
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
 
     revealElements.forEach((element) => {
-        observer.observe(element);
+
+        revealObserver.observe(element);
+
     });
 
 } else {
 
     revealElements.forEach((element) => {
-        element.classList.add("visible");
+
+        element.classList.add(
+            "visible"
+        );
+
     });
 
 }
@@ -173,45 +280,62 @@ if ("IntersectionObserver" in window) {
 // ===============================
 
 const projects =
-    document.querySelectorAll(".project-card");
+    document.querySelectorAll(
+        ".project-card"
+    );
+
 
 projects.forEach((project) => {
 
-    project.addEventListener("mousemove", (event) => {
+    project.addEventListener(
+        "mousemove",
+        (event) => {
 
-        if (window.innerWidth < 768) return;
+            if (
+                window.innerWidth < 768
+            ) {
+                return;
+            }
 
-        const rect =
-            project.getBoundingClientRect();
+            const rect =
+                project.getBoundingClientRect();
 
-        const x =
-            (event.clientX - rect.left) /
-            rect.width;
+            const x =
+                (event.clientX - rect.left) /
+                rect.width;
 
-        const y =
-            (event.clientY - rect.top) /
-            rect.height;
+            const y =
+                (event.clientY - rect.top) /
+                rect.height;
 
-        const rotateY =
-            (x - 0.5) * 4;
+            const rotateY =
+                (x - 0.5) * 4;
 
-        const rotateX =
-            (0.5 - y) * 4;
+            const rotateX =
+                (0.5 - y) * 4;
 
-        project.style.transform =
-            `perspective(1200px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-4px)`;
+            project.style.transform =
+                `perspective(1200px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-4px)`;
 
-    });
+        }
+    );
 
-    project.addEventListener("mouseleave", () => {
 
-        project.style.transform =
-            "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)";
+    project.addEventListener(
+        "mouseleave",
+        () => {
 
-    });
+            project.style.transform =
+                "perspective(1200px) " +
+                "rotateX(0deg) " +
+                "rotateY(0deg) " +
+                "translateY(0)";
+
+        }
+    );
 
 });
 
@@ -221,48 +345,62 @@ projects.forEach((project) => {
 // ===============================
 
 const skills =
-    document.querySelectorAll(".skill-card");
+    document.querySelectorAll(
+        ".skill-card"
+    );
+
 
 skills.forEach((card) => {
 
-    card.addEventListener("mousemove", (event) => {
+    card.addEventListener(
+        "mousemove",
+        (event) => {
 
-        if (window.innerWidth < 768) return;
+            if (
+                window.innerWidth < 768
+            ) {
+                return;
+            }
 
-        const rect =
-            card.getBoundingClientRect();
+            const rect =
+                card.getBoundingClientRect();
 
-        const x =
-            (event.clientX - rect.left) /
-            rect.width;
+            const x =
+                (event.clientX - rect.left) /
+                rect.width;
 
-        const y =
-            (event.clientY - rect.top) /
-            rect.height;
+            const y =
+                (event.clientY - rect.top) /
+                rect.height;
 
-        const rotateY =
-            (x - 0.5) * 5;
+            const rotateY =
+                (x - 0.5) * 5;
 
-        const rotateX =
-            (0.5 - y) * 5;
+            const rotateX =
+                (0.5 - y) * 5;
 
-        card.style.transform =
-            `perspective(1000px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-5px)`;
+            card.style.transform =
+                `perspective(1000px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-5px)`;
 
-    });
+        }
+    );
 
-    card.addEventListener("mouseleave", () => {
 
-        card.style.transform =
-            "perspective(1000px)
-             rotateX(0deg)
-             rotateY(0deg)
-             translateY(0)";
+    card.addEventListener(
+        "mouseleave",
+        () => {
 
-    });
+            card.style.transform =
+                "perspective(1000px) " +
+                "rotateX(0deg) " +
+                "rotateY(0deg) " +
+                "translateY(0)";
+
+        }
+    );
 
 });
 
@@ -272,21 +410,28 @@ skills.forEach((card) => {
 // ===============================
 
 const cursorGlow =
-    document.querySelector(".cursor-glow");
+    document.querySelector(
+        ".cursor-glow"
+    );
+
 
 if (cursorGlow) {
 
-    window.addEventListener("mousemove", (event) => {
+    window.addEventListener(
+        "mousemove",
+        (event) => {
 
-        cursorGlow.style.left =
-            `${event.clientX}px`;
+            cursorGlow.style.left =
+                `${event.clientX}px`;
 
-        cursorGlow.style.top =
-            `${event.clientY}px`;
+            cursorGlow.style.top =
+                `${event.clientY}px`;
 
-    }, {
-        passive: true
-    });
+        },
+        {
+            passive: true
+        }
+    );
 
 }
 
@@ -296,36 +441,59 @@ if (cursorGlow) {
 // ===============================
 
 const magneticElements =
-    document.querySelectorAll(".magnetic");
+    document.querySelectorAll(
+        ".magnetic"
+    );
+
 
 magneticElements.forEach((element) => {
 
-    element.addEventListener("mousemove", (event) => {
+    element.addEventListener(
+        "mousemove",
+        (event) => {
 
-        if (window.innerWidth < 768) return;
+            if (
+                window.innerWidth < 768
+            ) {
+                return;
+            }
 
-        const rect =
-            element.getBoundingClientRect();
+            const rect =
+                element.getBoundingClientRect();
 
-        const x =
-            event.clientX -
-            (rect.left + rect.width / 2);
+            const x =
+                event.clientX -
+                (
+                    rect.left +
+                    rect.width / 2
+                );
 
-        const y =
-            event.clientY -
-            (rect.top + rect.height / 2);
+            const y =
+                event.clientY -
+                (
+                    rect.top +
+                    rect.height / 2
+                );
 
-        element.style.transform =
-            `translate(${x * 0.08}px, ${y * 0.08}px)`;
+            element.style.transform =
+                `translate(
+                    ${x * 0.08}px,
+                    ${y * 0.08}px
+                )`;
 
-    });
+        }
+    );
 
-    element.addEventListener("mouseleave", () => {
 
-        element.style.transform =
-            "translate(0, 0)";
+    element.addEventListener(
+        "mouseleave",
+        () => {
 
-    });
+            element.style.transform =
+                "translate(0, 0)";
+
+        }
+    );
 
 });
 
@@ -338,28 +506,38 @@ document.querySelectorAll(
     'a[href^="#"]'
 ).forEach((link) => {
 
-    link.addEventListener("click", (event) => {
+    link.addEventListener(
+        "click",
+        (event) => {
 
-        const targetId =
-            link.getAttribute("href");
+            const targetId =
+                link.getAttribute("href");
 
-        if (!targetId || targetId === "#") {
-            return;
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+                return;
+            }
+
+            const target =
+                document.querySelector(
+                    targetId
+                );
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
         }
-
-        const target =
-            document.querySelector(targetId);
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    });
+    );
 
 });
 
@@ -371,9 +549,12 @@ document.querySelectorAll(
 const year =
     document.querySelector("#year");
 
+
 if (year) {
+
     year.textContent =
         new Date().getFullYear();
+
 }
 
 
@@ -385,15 +566,24 @@ document.querySelectorAll(
     ".project-link"
 ).forEach((link) => {
 
-    link.addEventListener("click", () => {
+    link.addEventListener(
+        "click",
+        () => {
 
-        link.classList.add("clicked");
+            link.classList.add(
+                "clicked"
+            );
 
-        setTimeout(() => {
-            link.classList.remove("clicked");
-        }, 500);
+            setTimeout(() => {
 
-    });
+                link.classList.remove(
+                    "clicked"
+                );
+
+            }, 500);
+
+        }
+    );
 
 });
 
@@ -402,7 +592,7 @@ document.querySelectorAll(
 // MOBILE MODE
 // ===============================
 
-function checkMobile() {
+function updateMobileMode() {
 
     document.body.classList.toggle(
         "mobile",
@@ -411,13 +601,33 @@ function checkMobile() {
 
 }
 
-checkMobile();
+updateMobileMode();
 
-window.addEventListener("resize", checkMobile);
+window.addEventListener(
+    "resize",
+    updateMobileMode
+);
 
 
 // ===============================
-// INITIALIZE
+// PREVENT THEME BUTTON
+// FROM BEING AFFECTED BY
+// MAGNETIC EFFECTS
 // ===============================
+
+if (themeToggle) {
+
+    themeToggle.classList.remove(
+        "magnetic"
+    );
+
+}
+
+
+// ===============================
+// FINAL INITIALIZATION
+// ===============================
+
+updateNavbar();
 
 updateScrollProgress();
