@@ -926,3 +926,166 @@ footer {
         font-size: 50px;
     }
 }
+
+
+/* =========================
+   SOCIAL CONTACT GRID
+   ========================= */
+
+.social-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 55px;
+
+    max-width: 850px;
+}
+
+
+.social-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    min-height: 88px;
+
+    background: rgba(255,255,255,0.02);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.social-card:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255,255,255,0.055);
+
+    border-color: rgba(255,255,255,0.2);
+}
+
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 16px;
+
+    color: white;
+
+    background: #0c0c0c;
+}
+
+
+.social-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+
+.social-info span {
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    color: #555;
+}
+
+
+.social-info strong {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #ddd;
+}
+
+
+.social-arrow {
+    color: #555;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+
+.social-card:hover .social-arrow {
+    color: white;
+
+    transform: translate(3px, -3px);
+}
+
+
+/* Individual icons */
+
+.linkedin-icon {
+    font-weight: 700;
+}
+
+.gmail-icon {
+    font-weight: 600;
+}
+
+.instagram-icon {
+    font-size: 22px;
+}
+
+.whatsapp-icon {
+    font-size: 18px;
+}
+
+.telegram-icon {
+    font-size: 18px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .social-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 40px;
+    }
+
+    .social-card {
+        padding: 18px;
+    }
+
+}
