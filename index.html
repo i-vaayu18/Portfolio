@@ -2,184 +2,292 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#070707">
-    <meta name="description"
-        content="VaaYU — Python Developer, Automation Builder and AI Enthusiast.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>VaaYU — Developer & Builder</title>
+    <meta
+        name="description"
+        content="VaaYU — Python developer, data analysis learner and builder."
+    >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <title>VaaYU — Developer Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
     <div class="noise"></div>
+
     <div class="cursor-glow"></div>
+
     <div class="scroll-progress"></div>
 
-    <!-- ================= NAVBAR ================= -->
 
-    <header class="navbar" id="navbar">
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-        <a href="#top" class="logo">
+    <header class="navbar">
+
+        <a href="#home" class="logo">
             VaaYU<span>.</span>
         </a>
 
-        <nav>
+
+        <nav class="nav-links">
+
             <a href="#about">About</a>
+
             <a href="#skills">Skills</a>
+
             <a href="#projects">Projects</a>
+
             <a href="#contact">Contact</a>
 
             <a
                 href="https://github.com/i-vaayu18"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+            >
                 GitHub ↗
             </a>
+
         </nav>
 
-        <a href="#contact" class="nav-cta">
-            Let's talk <span>↗</span>
+
+        <a
+            href="#contact"
+            class="nav-button magnetic"
+        >
+            Let's talk ↗
         </a>
+
+
+        <button
+            class="menu-button"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+        </button>
 
     </header>
 
 
-    <main id="top">
+    <!-- =========================
+         MOBILE MENU
+    ========================== -->
 
-        <!-- ================= HERO ================= -->
+    <div class="mobile-menu">
 
-        <section class="hero">
+        <a href="#about">About</a>
 
-            <div class="hero-grid"></div>
+        <a href="#skills">Skills</a>
 
-            <div class="hero-orb orb-one"></div>
-            <div class="hero-orb orb-two"></div>
+        <a href="#projects">Projects</a>
 
-            <div class="hero-content reveal">
+        <a href="#contact">Contact</a>
 
-                <div class="eyebrow">
+        <a
+            href="https://github.com/i-vaayu18"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub ↗
+        </a>
+
+    </div>
+
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section
+            id="home"
+            class="hero"
+        >
+
+            <div class="hero-content">
+
+                <div class="eyebrow reveal">
                     <span class="status-dot"></span>
-                    PYTHON DEVELOPER · AUTOMATION BUILDER
+                    Currently learning & building
                 </div>
 
-                <h1>
-                    I build things
-                    <br>
-                    that <span>actually matter.</span>
+
+                <h1 class="hero-title reveal">
+
+                    Building things
+                    <span>one line</span>
+                    at a time.
+
                 </h1>
 
-                <p class="hero-text">
-                    I turn ideas, everyday problems and repetitive
-                    tasks into practical software using
-                    <b>Python, automation and AI.</b>
+
+                <p class="hero-description reveal">
+
+                    I'm VaaYU — learning Python, exploring
+                    Data Analysis, and building projects that
+                    turn curiosity into something real.
+
                 </p>
 
-                <div class="hero-buttons">
 
-                    <a href="#projects"
-                        class="btn btn-primary magnetic">
-                        Explore projects
-                        <span>↗</span>
-                    </a>
+                <div class="hero-actions reveal">
 
                     <a
-                        href="https://github.com/i-vaayu18"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-secondary magnetic">
-                        GitHub
+                        href="#projects"
+                        class="primary-button magnetic"
+                    >
+                        View my work
                         <span>↗</span>
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="secondary-button magnetic"
+                    >
+                        Get in touch
                     </a>
 
                 </div>
 
-                <div class="hero-meta">
-                    <span>BASED IN INDIA</span>
-                    <span>•</span>
-                    <span>BUILDING SINCE 2025</span>
+
+                <div class="hero-meta reveal">
+
+                    <div>
+                        <span class="meta-number">02</span>
+                        <span class="meta-label">Projects</span>
+                    </div>
+
+                    <div>
+                        <span class="meta-number">01</span>
+                        <span class="meta-label">Developer journey</span>
+                    </div>
+
+                    <div>
+                        <span class="meta-number">∞</span>
+                        <span class="meta-label">Curiosity</span>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="hero-scroll">
-                <span class="scroll-line"></span>
-                SCROLL TO EXPLORE
+
+            <div class="hero-orbit">
+
+                <div class="orbit orbit-one"></div>
+
+                <div class="orbit orbit-two"></div>
+
+                <div class="orbit-core">
+                    V
+                </div>
+
             </div>
 
-            <div class="hero-number">
-                01
+
+            <div class="scroll-hint">
+                <span></span>
+                Scroll to explore
             </div>
 
         </section>
 
 
-        <!-- ================= ABOUT ================= -->
 
-        <section id="about" class="section">
+        <!-- =========================
+             ABOUT
+        ========================== -->
 
-            <div class="section-label">
-                <span>01</span>
-                / ABOUT
+        <section
+            id="about"
+            class="section about-section"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="section-label">
+                    01 — ABOUT
+                </span>
+
+                <h2>
+                    Curious by nature.
+                    <br>
+                    Building by choice.
+                </h2>
+
             </div>
+
 
             <div class="about-grid">
 
-                <div class="reveal">
+                <div class="about-main reveal">
 
-                    <p class="mini-label">
-                        A LITTLE ABOUT ME
+                    <p class="large-text">
+
+                        I'm currently learning Python and
+                        exploring the world of Data Analysis,
+                        while experimenting with projects
+                        that make me learn by actually building.
+
                     </p>
 
-                    <h2>
-                        Building useful things,
-                        <br>
-                        <span>one idea at a time.</span>
-                    </h2>
+                    <p>
+
+                        I believe the best way to learn is to
+                        build something, break it, understand
+                        why it broke, and then make it better.
+
+                    </p>
 
                 </div>
 
-                <div class="about-text reveal">
 
-                    <p>
-                        I'm VaaYU, a developer interested in Python,
-                        automation, AI and building practical software.
-                    </p>
+                <div class="about-side reveal">
 
-                    <p>
-                        I enjoy taking everyday problems and turning
-                        them into simple tools that save time and make
-                        life easier.
-                    </p>
+                    <div class="info-row">
+                        <span>Focus</span>
+                        <strong>Python & Data Analysis</strong>
+                    </div>
 
-                    <div class="about-facts">
+                    <div class="info-row">
+                        <span>Exploring</span>
+                        <strong>Pandas · NumPy · Matplotlib</strong>
+                    </div>
 
-                        <div>
-                            <strong>03+</strong>
-                            <span>Projects</span>
-                        </div>
+                    <div class="info-row">
+                        <span>Mindset</span>
+                        <strong>One line at a time</strong>
+                    </div>
 
-                        <div>
-                            <strong>∞</strong>
-                            <span>Ideas</span>
-                        </div>
-
-                        <div>
-                            <strong>24/7</strong>
-                            <span>Curiosity</span>
-                        </div>
-
+                    <div class="info-row">
+                        <span>Based online</span>
+                        <strong>Always learning</strong>
                     </div>
 
                 </div>
@@ -189,440 +297,636 @@
         </section>
 
 
-        <!-- ================= SKILLS ================= -->
 
-        <section id="skills" class="section">
+        <!-- =========================
+             SKILLS
+        ========================== -->
 
-            <div class="section-label">
-                <span>02</span>
-                / SKILLS
-            </div>
+        <section
+            id="skills"
+            class="section"
+        >
 
             <div class="section-heading reveal">
 
-                <div>
+                <span class="section-label">
+                    02 — SKILLS
+                </span>
 
-                    <p class="mini-label">
-                        MY TOOLBOX
-                    </p>
-
-                    <h2>
-                        Tools I
-                        <span>work with.</span>
-                    </h2>
-
-                </div>
-
-                <p>
-                    Technologies I use to turn ideas
-                    into working products.
-                </p>
+                <h2>
+                    Tools I'm
+                    <span>exploring.</span>
+                </h2>
 
             </div>
 
 
             <div class="skills-grid">
 
-                <article class="skill-card tilt reveal">
 
-                    <div class="skill-top">
-                        <span>01</span>
-                        <span>PY</span>
+                <div class="skill-card reveal">
+
+                    <div class="skill-number">
+                        01
                     </div>
 
-                    <div class="skill-icon">⌘</div>
+                    <div class="skill-icon">
+                        Py
+                    </div>
 
                     <h3>Python</h3>
 
                     <p>
-                        Automation, scripting, APIs
-                        and backend development.
+                        Programming fundamentals,
+                        automation and project building.
                     </p>
 
-                    <div class="skill-line"></div>
-
-                </article>
+                </div>
 
 
-                <article class="skill-card tilt reveal">
+                <div class="skill-card reveal">
 
-                    <div class="skill-top">
-                        <span>02</span>
-                        <span>AUTO</span>
+                    <div class="skill-number">
+                        02
                     </div>
 
-                    <div class="skill-icon">↯</div>
-
-                    <h3>Automation</h3>
-
-                    <p>
-                        Turning repetitive tasks
-                        into simple systems.
-                    </p>
-
-                    <div class="skill-line"></div>
-
-                </article>
-
-
-                <article class="skill-card tilt reveal">
-
-                    <div class="skill-top">
-                        <span>03</span>
-                        <span>AI</span>
+                    <div class="skill-icon">
+                        Pd
                     </div>
 
-                    <div class="skill-icon">✦</div>
-
-                    <h3>AI & APIs</h3>
+                    <h3>Pandas</h3>
 
                     <p>
-                        Building useful applications
-                        with AI integrations.
+                        Exploring data manipulation,
+                        cleaning and analysis.
                     </p>
 
-                    <div class="skill-line"></div>
-
-                </article>
+                </div>
 
 
-                <article class="skill-card tilt reveal">
+                <div class="skill-card reveal">
 
-                    <div class="skill-top">
-                        <span>04</span>
-                        <span>WEB</span>
+                    <div class="skill-number">
+                        03
                     </div>
 
-                    <div class="skill-icon">⌁</div>
+                    <div class="skill-icon">
+                        Np
+                    </div>
 
-                    <h3>Backend</h3>
+                    <h3>NumPy</h3>
 
                     <p>
-                        Flask, databases, APIs and
-                        server-side logic.
+                        Working with numerical data
+                        and scientific computing.
                     </p>
 
-                    <div class="skill-line"></div>
+                </div>
 
-                </article>
+
+                <div class="skill-card reveal">
+
+                    <div class="skill-number">
+                        04
+                    </div>
+
+                    <div class="skill-icon">
+                        Mp
+                    </div>
+
+                    <h3>Matplotlib</h3>
+
+                    <p>
+                        Turning data into visual
+                        insights and charts.
+                    </p>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- ================= PROJECTS ================= -->
 
-        <section id="projects" class="section projects">
+        <!-- =========================
+             PROJECTS
+        ========================== -->
 
-            <div class="section-label">
-                <span>03</span>
-                / PROJECTS
-            </div>
+        <section
+            id="projects"
+            class="section projects-section"
+        >
 
             <div class="section-heading reveal">
 
-                <div>
+                <span class="section-label">
+                    03 — PROJECTS
+                </span>
 
-                    <p class="mini-label">
-                        SELECTED WORK
-                    </p>
-
-                    <h2>
-                        Things I've
-                        <span>built.</span>
-                    </h2>
-
-                </div>
+                <h2>
+                    Things I've
+                    <span>built.</span>
+                </h2>
 
                 <p>
-                    Small ideas turned into
-                    real, usable projects.
+                    Real projects, experiments and ideas
+                    that helped me learn by doing.
                 </p>
 
             </div>
 
 
-            <div class="project-list">
+            <div class="projects-grid">
 
 
-                <!-- ================= TAARA ================= -->
+                <!-- TAARA -->
 
-                <article class="project-card reveal">
+                <article
+                    class="project-card reveal"
+                    data-tilt
+                >
 
-                    <div class="project-index">
-                        01
-                    </div>
+                    <div class="project-top">
 
-                    <div class="project-main">
+                        <span class="project-index">
+                            01
+                        </span>
 
-                        <div class="project-top">
-                            <span>
-                                TELEGRAM PERSONAL ASSISTANT
-                            </span>
-
-                            <span>
-                                2026
-                            </span>
-                        </div>
-
-
-                        <div class="project-title-row">
-
-                            <h3>
-                                Taara
-                            </h3>
-
-                            <span class="project-symbol">
-                                ✦
-                            </span>
-
-                        </div>
-
-
-                        <p>
-
-                            Taara is a <strong>Telegram-based personal
-                            assistant</strong> built with Python,
-                            Telethon, and OpenAI.
-
-                        </p>
-
-                        <p>
-
-                            It works through a Telegram user account
-                            and can automatically respond to incoming
-                            messages using an AI-powered assistant
-                            personality.
-
-                        </p>
-
-                        <p>
-
-                            Taara is designed to behave like a natural
-                            personal assistant for <strong>VaaYU</strong>,
-                            while keeping normal conversations friendly
-                            and human-like.
-
-                        </p>
-
-
-                        <blockquote>
-
-                            💫 Taara — VaaYU's personal assistant
-                            on Telegram.
-
-                        </blockquote>
-
-
-                        <div class="tech-stack">
-
-                            <span>Python</span>
-                            <span>Telethon</span>
-                            <span>OpenAI</span>
-                            <span>AsyncIO</span>
-                            <span>Telegram</span>
-
-                        </div>
-
-
-                        <!-- EXACT TAARA REPOSITORY -->
-
-                        <a
-                            href="https://github.com/i-vaayu18/Taara---Personal-Assistant"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link">
-
-                            View Taara Repository
-
-                            <span>↗</span>
-
-                        </a>
+                        <span class="project-status">
+                            BUILT
+                        </span>
 
                     </div>
+
+
+                    <div class="project-icon taara-icon">
+                        T
+                    </div>
+
+
+                    <h3>
+                        Taara
+                    </h3>
+
+
+                    <p class="project-description">
+
+                        Taara is a Telegram-based personal
+                        assistant built with Python, Telethon,
+                        and OpenAI.
+
+                        It works through a Telegram user account
+                        and can automatically respond to incoming
+                        messages using an AI-powered assistant
+                        personality.
+
+                        Taara is designed to behave like a
+                        natural personal assistant for VaaYU,
+                        while keeping normal conversations
+                        friendly and human-like.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Python</span>
+
+                        <span>Telethon</span>
+
+                        <span>OpenAI</span>
+
+                        <span>Telegram</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/i-vaayu18/Taara---Personal-Assistant"
+                        class="project-link magnetic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <span>
+                            View repository
+                        </span>
+
+                        <span>↗</span>
+
+                    </a>
 
                 </article>
 
 
-                <!-- ================= ZAARA ================= -->
 
-                <article class="project-card reveal">
+                <!-- ZAARA -->
 
-                    <div class="project-index">
-                        02
-                    </div>
+                <article
+                    class="project-card reveal"
+                    data-tilt
+                >
 
-                    <div class="project-main">
+                    <div class="project-top">
 
-                        <div class="project-top">
+                        <span class="project-index">
+                            02
+                        </span>
 
-                            <span>
-                                TELEGRAM ASSISTANT · DATA MANAGER
-                            </span>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-title-row">
-
-                            <h3>
-                                Zaara
-                            </h3>
-
-                            <span class="project-symbol">
-                                ✦
-                            </span>
-
-                        </div>
-
-
-                        <p>
-
-                            Zaara is a Telegram-based personal
-                            assistant built with <strong>Python,
-                            Flask, SQLite and OpenAI</strong>.
-
-                        </p>
-
-
-                        <p>
-
-                            It provides a simple Telegram interface
-                            for managing receives, payments, expenses
-                            and personal notes.
-
-                        </p>
-
-
-                        <p>
-
-                            The project also includes user-specific
-                            data storage and an assistant-style
-                            conversational layer.
-
-                        </p>
-
-
-                        <div class="tech-stack">
-
-                            <span>Python</span>
-                            <span>PyTelegramBotAPI</span>
-                            <span>Flask</span>
-                            <span>SQLite</span>
-                            <span>OpenAI</span>
-
-                        </div>
-
-
-                        <!--
-                            ZAARA REPOSITORY
-
-                            Replace this URL once the Zaara
-                            repository is published.
-                        -->
-
-                        <a
-                            href="https://github.com/i-vaayu18"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link">
-
-                            View Zaara on GitHub
-
-                            <span>↗</span>
-
-                        </a>
+                        <span class="project-status">
+                            BUILT
+                        </span>
 
                     </div>
+
+
+                    <div class="project-icon zaara-icon">
+                        Z
+                    </div>
+
+
+                    <h3>
+                        Zaara
+                    </h3>
+
+
+                    <p class="project-description">
+
+                        A Telegram-based personal assistant
+                        project focused on conversational
+                        interaction, personal organization
+                        and practical everyday utilities.
+
+                        The project combines Python,
+                        Telegram bot functionality and
+                        OpenAI-powered interaction.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Python</span>
+
+                        <span>Telegram</span>
+
+                        <span>OpenAI</span>
+
+                        <span>SQLite</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/i-vaayu18/Zaara"
+                        class="project-link magnetic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <span>
+                            View repository
+                        </span>
+
+                        <span>↗</span>
+
+                    </a>
 
                 </article>
 
 
-                <!-- ================= AUTOMAILERPRO ================= -->
+            </div>
 
-                <article class="project-card reveal">
 
-                    <div class="project-index">
-                        03
+            <div class="github-cta reveal">
+
+                <div>
+
+                    <span>
+                        MORE ON GITHUB
+                    </span>
+
+                    <strong>
+                        Follow the journey.
+                    </strong>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/i-vaayu18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="secondary-button magnetic"
+                >
+                    GitHub profile ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section
+            id="contact"
+            class="section contact-section"
+        >
+
+            <div class="section-heading contact-heading reveal">
+
+                <span class="section-label">
+                    04 — CONTACT
+                </span>
+
+                <h2>
+                    Let's make
+                    <span>something.</span>
+                </h2>
+
+                <p>
+                    Have an idea, want to collaborate,
+                    or simply want to say hello?
+                    Pick your preferred way to reach me.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <!-- GITHUB -->
+
+                <a
+                    href="https://github.com/i-vaayu18"
+                    class="contact-card reveal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div class="contact-icon github">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"
+                            />
+                        </svg>
+
                     </div>
 
-                    <div class="project-main">
 
-                        <div class="project-top">
+                    <div class="contact-info">
 
-                            <span>
-                                EMAIL AUTOMATION
-                            </span>
+                        <span>GITHUB</span>
 
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-title-row">
-
-                            <h3>
-                                AutoMailerPro
-                            </h3>
-
-                            <span class="project-symbol">
-                                ✦
-                            </span>
-
-                        </div>
-
-
-                        <p>
-
-                            AutoMailerPro is a Python-based email
-                            automation tool for sending personalized
-                            bulk emails directly from an Excel sheet.
-
-                        </p>
-
-
-                        <p>
-
-                            It supports personalized messages,
-                            optional attachments, multiple recipients
-                            and configurable delays between sends.
-
-                        </p>
-
-
-                        <div class="tech-stack">
-
-                            <span>Python</span>
-                            <span>Gmail SMTP</span>
-                            <span>Pandas</span>
-                            <span>OpenPyXL</span>
-                            <span>Excel</span>
-
-                        </div>
-
-
-                        <a
-                            href="https://github.com/i-vaayu18"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link">
-
-                            View AutoMailerPro on GitHub
-
-                            <span>↗</span>
-
-                        </a>
+                        <strong>
+                            github.com/i-vaayu18
+                        </strong>
 
                     </div>
 
-                </article>
+
+                    <span class="contact-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+
+                <!-- LINKEDIN -->
+
+                <a
+                    href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
+                    class="contact-card reveal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div class="contact-icon linkedin">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.34 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.56 20.45h3.57V8.98H3.56v11.47ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <span>LINKEDIN</span>
+
+                        <strong>
+                            Connect with me
+                        </strong>
+
+                    </div>
+
+
+                    <span class="contact-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+
+                <!-- GMAIL -->
+
+                <a
+                    href="mailto:manishsinghbora18@gmail.com"
+                    class="contact-card reveal"
+                >
+
+                    <div class="contact-icon gmail">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.25l8 5.25 8-5.25V6.5a.5.5 0 0 0-.5-.5h-15ZM20 9l-8 5.25L4 9v8.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V9Z"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <span>EMAIL</span>
+
+                        <strong>
+                            manishsinghbora18@gmail.com
+                        </strong>
+
+                    </div>
+
+
+                    <span class="contact-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://instagram.com/i.vaayu18"
+                    class="contact-card reveal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div class="contact-icon instagram">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                                ry="5"
+                            />
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                            />
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                class="instagram-dot"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <span>INSTAGRAM</span>
+
+                        <strong>
+                            @i.vaayu18
+                        </strong>
+
+                    </div>
+
+
+                    <span class="contact-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    href="https://wa.me/919625178828"
+                    class="contact-card reveal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div class="contact-icon whatsapp">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 2a9.7 9.7 0 0 0-8.4 14.65L2.2 22l5.53-1.37A9.7 9.7 0 1 0 12 2Zm0 17.7a8 8 0 0 1-4.08-1.12l-.29-.17-3.28.81.84-3.2-.19-.3A8 8 0 1 1 12 19.7Zm4.38-5.98c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.7-.62-1.18-1.38-1.32-1.61-.14-.24-.01-.36.11-.48.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <span>WHATSAPP</span>
+
+                        <strong>
+                            Chat with me
+                        </strong>
+
+                    </div>
+
+
+                    <span class="contact-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+
+                <!-- TELEGRAM -->
+
+                <a
+                    href="https://t.me/i_vaayu18"
+                    class="contact-card reveal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <div class="contact-icon telegram">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M21.5 3.4 18.2 20c-.25 1.17-.9 1.46-1.82.91l-5.02-3.7-2.42 2.33c-.27.27-.5.5-1.03.5l.37-5.12 9.32-8.42c.4-.37-.09-.57-.62-.2L5.46 13.3.5 11.75c-1.08-.34-1.1-1.08.23-1.57L20.1 2.77c.9-.33 1.69.2 1.4.63Z"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <span>TELEGRAM</span>
+
+                        <strong>
+                            @i_vaayu18
+                        </strong>
+
+                    </div>
+
+
+                    <span class="contact-arrow">
+                        ↗
+                    </span>
+
+                </a>
 
 
             </div>
@@ -630,165 +934,69 @@
         </section>
 
 
-        <!-- ================= CONTACT ================= -->
-
-        <section id="contact" class="contact-section">
-
-    <div class="section-heading">
-        <span class="section-label">GET IN TOUCH</span>
-
-        <h2>Let's connect.</h2>
-
-        <p>
-            Have an idea, want to collaborate, or simply want to say hello?
-            Pick your preferred way to reach me.
-        </p>
-    </div>
-
-
-    <div class="contact-grid">
-
-        <!-- GitHub -->
-        <a
-            href="https://github.com/i-vaayu18"
-            class="contact-card"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <div class="contact-icon github">
-                <i class="fa-brands fa-github"></i>
-            </div>
-
-            <div class="contact-info">
-                <span>GITHUB</span>
-                <strong>github.com/i-vaayu18</strong>
-            </div>
-
-            <span class="contact-arrow">↗</span>
-        </a>
-
-
-        <!-- LinkedIn -->
-        <a
-            href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
-            class="contact-card"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <div class="contact-icon linkedin">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-
-            <div class="contact-info">
-                <span>LINKEDIN</span>
-                <strong>Connect with me</strong>
-            </div>
-
-            <span class="contact-arrow">↗</span>
-        </a>
-
-
-        <!-- Gmail -->
-        <a
-            href="mailto:manishsinghbora18@gmail.com"
-            class="contact-card"
-        >
-            <div class="contact-icon gmail">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-
-            <div class="contact-info">
-                <span>EMAIL</span>
-                <strong>manishsinghbora18@gmail.com</strong>
-            </div>
-
-            <span class="contact-arrow">↗</span>
-        </a>
-
-
-        <!-- Instagram -->
-        <a
-            href="https://instagram.com/i.vaayu18"
-            class="contact-card"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <div class="contact-icon instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </div>
-
-            <div class="contact-info">
-                <span>INSTAGRAM</span>
-                <strong>@i.vaayu18</strong>
-            </div>
-
-            <span class="contact-arrow">↗</span>
-        </a>
-
-
-        <!-- WhatsApp -->
-        <a
-            href="https://wa.me/919625178828"
-            class="contact-card"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <div class="contact-icon whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </div>
-
-            <div class="contact-info">
-                <span>WHATSAPP</span>
-                <strong>Chat with me</strong>
-            </div>
-
-            <span class="contact-arrow">↗</span>
-        </a>
-
-
-        <!-- Telegram -->
-        <a
-            href="https://t.me/i_vaayu18"
-            class="contact-card"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <div class="contact-icon telegram">
-                <i class="fa-brands fa-telegram"></i>
-            </div>
-
-            <div class="contact-info">
-                <span>TELEGRAM</span>
-                <strong>@i_vaayu18</strong>
-            </div>
-
-            <span class="contact-arrow">↗</span>
-        </a>
-
-    </div>
-
-</section>
-        
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
-        <div class="footer-logo">
-            VaaYU<span>.</span>
+        <div class="footer-inner">
+
+            <div>
+
+                <a
+                    href="#home"
+                    class="logo"
+                >
+                    VaaYU<span>.</span>
+                </a>
+
+                <p>
+                    Learning. Building. Improving.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#about">About</a>
+
+                <a href="#projects">Projects</a>
+
+                <a href="#contact">Contact</a>
+
+                <a
+                    href="https://github.com/i-vaayu18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub ↗
+                </a>
+
+            </div>
+
         </div>
 
-        <p>
-            Built with curiosity & code.
-        </p>
 
-        <p>
-            © <span id="year"></span> VaaYU
-        </p>
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year"></span> VaaYU
+            </span>
+
+            <span>
+                Built with curiosity.
+            </span>
+
+        </div>
 
     </footer>
+
 
 
     <script src="script.js"></script>
