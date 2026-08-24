@@ -42,6 +42,57 @@ body.light-theme .theme-toggle:hover{background:rgba(17,24,39,.09);border-color:
 body.light-theme .theme-toggle:focus-visible{outline-color:rgba(17,24,39,.45)}
 @media(max-width:768px){.theme-toggle{width:40px;height:40px;min-width:40px;margin-left:6px;border-radius:11px}}
 </style>
+
+<style id="social-alignment-fix">
+.hero-socials,
+.footer-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-socials a,
+.footer-right a {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: 0 0 46px;
+}
+
+.hero-socials a i,
+.footer-right a i {
+    display: block;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-socials,
+    .footer-right {
+        gap: 10px;
+    }
+
+    .hero-socials a,
+    .footer-right a {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        flex-basis: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-socials,
+    .footer-right {
+        gap: 8px;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -818,8 +869,18 @@ body.light-theme .theme-toggle:focus-visible{outline-color:rgba(17,24,39,.45)}
                     href="https://t.me/i_vaayu18"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Telegram"
+                    title="Telegram"
                 >
                     <i class="fa-brands fa-telegram"></i>
+                </a>
+
+                <a
+                    href="mailto:manishsinghbora18@gmail.com"
+                    aria-label="Email"
+                    title="Email"
+                >
+                    <i class="fa-solid fa-envelope"></i>
                 </a>
 
             </div>
