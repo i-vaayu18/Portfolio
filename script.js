@@ -650,3 +650,66 @@ document.addEventListener(
 
     }
 );
+
+
+// ===============================
+// DARK / LIGHT THEME
+// ===============================
+
+const themeToggle =
+    document.querySelector("#themeToggle");
+
+const themeIcon =
+    themeToggle?.querySelector("i");
+
+
+// Load saved theme
+const savedTheme =
+    localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light-theme");
+
+    if (themeIcon) {
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+    }
+
+}
+
+
+// Toggle theme
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        const isLight =
+            document.body.classList.toggle("light-theme");
+
+
+        if (isLight) {
+
+            localStorage.setItem(
+                "portfolio-theme",
+                "light"
+            );
+
+            themeIcon?.classList.remove("fa-sun");
+            themeIcon?.classList.add("fa-moon");
+
+        } else {
+
+            localStorage.setItem(
+                "portfolio-theme",
+                "dark"
+            );
+
+            themeIcon?.classList.remove("fa-moon");
+            themeIcon?.classList.add("fa-sun");
+
+        }
+
+    });
+
+}
