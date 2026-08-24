@@ -10,6 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="theme-color"
+        content="#070707"
+    >
+
     <title>
         VaaYU — Developer & Builder
     </title>
@@ -19,7 +24,23 @@
         content="VaaYU — Python Developer, Automation Builder and AI Enthusiast."
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -27,11 +48,25 @@
 <body>
 
 
+    <div class="noise"></div>
+
+    <div class="cursor-glow"></div>
+
+    <div class="scroll-progress"></div>
+
+
+
     <!-- ================= NAVBAR ================= -->
 
-    <header class="navbar">
+    <header
+        class="navbar"
+        id="navbar"
+    >
 
-        <a href="#" class="logo">
+        <a
+            href="#top"
+            class="logo"
+        >
             VaaYU<span>.</span>
         </a>
 
@@ -67,29 +102,43 @@
 
         </nav>
 
+
+        <a
+            href="#contact"
+            class="nav-cta"
+        >
+            Let's talk <span>↗</span>
+        </a>
+
     </header>
 
 
 
-    <!-- ================= HERO ================= -->
+    <main id="top">
 
-    <main>
 
+
+        <!-- ================= HERO ================= -->
 
         <section class="hero">
 
+            <div class="hero-grid"></div>
 
-            <div class="hero-glow"></div>
+            <div class="hero-orb orb-one"></div>
+
+            <div class="hero-orb orb-two"></div>
 
 
-            <div class="hero-content">
+            <div class="hero-content reveal">
 
 
-                <p class="eyebrow">
+                <div class="eyebrow">
+
+                    <span class="status-dot"></span>
 
                     PYTHON DEVELOPER · AUTOMATION BUILDER
 
-                </p>
+                </div>
 
 
 
@@ -107,8 +156,9 @@
 
                 <p class="hero-text">
 
-                    I turn ideas, everyday problems and repetitive tasks
-                    into practical software using Python, automation and AI.
+                    I turn ideas, everyday problems and repetitive
+                    tasks into practical software using
+                    <b>Python, automation and AI.</b>
 
                 </p>
 
@@ -117,14 +167,12 @@
                 <div class="hero-buttons">
 
 
-                    <!-- PROJECT BUTTON -->
-
                     <a
                         href="#projects"
-                        class="btn btn-primary"
+                        class="btn btn-primary magnetic"
                     >
 
-                        Explore Projects
+                        Explore projects
 
                         <span>
                             ↗
@@ -140,7 +188,7 @@
                         href="https://github.com/i-vaayu18"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="btn btn-secondary"
+                        class="btn btn-secondary magnetic"
                     >
 
                         GitHub
@@ -155,15 +203,41 @@
                 </div>
 
 
+
+                <div class="hero-meta">
+
+                    <span>
+                        BASED IN INDIA
+                    </span>
+
+                    <span>
+                        •
+                    </span>
+
+                    <span>
+                        BUILDING SINCE 2025
+                    </span>
+
+                </div>
+
+
             </div>
 
 
 
-            <div class="scroll-indicator">
+            <div class="hero-scroll">
 
-                <span></span>
+                <span class="scroll-line"></span>
 
                 SCROLL TO EXPLORE
+
+            </div>
+
+
+
+            <div class="hero-number">
+
+                01
 
             </div>
 
@@ -182,7 +256,11 @@
 
             <div class="section-label">
 
-                01 / ABOUT
+                <span>
+                    01
+                </span>
+
+                / ABOUT
 
             </div>
 
@@ -191,19 +269,35 @@
             <div class="about-grid">
 
 
-                <h2>
-
-                    Building useful things,
-
-                    <span>
-                        one idea at a time.
-                    </span>
-
-                </h2>
+                <div class="reveal">
 
 
+                    <p class="mini-label">
 
-                <div class="about-text">
+                        A LITTLE ABOUT ME
+
+                    </p>
+
+
+
+                    <h2>
+
+                        Building useful things,
+
+                        <br>
+
+                        <span>
+                            one idea at a time.
+                        </span>
+
+                    </h2>
+
+
+                </div>
+
+
+
+                <div class="about-text reveal">
 
 
                     <p>
@@ -217,10 +311,59 @@
 
                     <p>
 
-                        I enjoy taking everyday problems and turning them
-                        into simple tools that save time and make life easier.
+                        I enjoy taking everyday problems and turning
+                        them into simple tools that save time and make
+                        life easier.
 
                     </p>
+
+
+
+                    <div class="about-facts">
+
+
+                        <div>
+
+                            <strong>
+                                02+
+                            </strong>
+
+                            <span>
+                                Projects
+                            </span>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <strong>
+                                ∞
+                            </strong>
+
+                            <span>
+                                Ideas
+                            </span>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <strong>
+                                24/7
+                            </strong>
+
+                            <span>
+                                Curiosity
+                            </span>
+
+                        </div>
+
+
+                    </div>
 
 
                 </div>
@@ -243,30 +386,47 @@
 
             <div class="section-label">
 
-                02 / SKILLS
+                <span>
+                    02
+                </span>
+
+                / SKILLS
 
             </div>
 
 
 
-            <div class="section-heading">
+            <div class="section-heading reveal">
 
 
-                <h2>
+                <div>
 
-                    Tools I
+                    <p class="mini-label">
 
-                    <span>
-                        work with.
-                    </span>
+                        MY TOOLBOX
 
-                </h2>
+                    </p>
+
+
+
+                    <h2>
+
+                        Tools I
+
+                        <span>
+                            work with.
+                        </span>
+
+                    </h2>
+
+                </div>
 
 
 
                 <p>
 
-                    Technologies I use to turn ideas into working products.
+                    Technologies I use to turn ideas
+                    into working products.
 
                 </p>
 
@@ -280,10 +440,25 @@
 
                 <!-- PYTHON -->
 
-                <div class="skill-card">
+                <article
+                    class="skill-card tilt reveal"
+                >
 
-                    <div class="skill-number">
-                        01
+                    <div class="skill-top">
+
+                        <span>
+                            01
+                        </span>
+
+                        <span>
+                            PY
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-icon">
+                        ⌘
                     </div>
 
 
@@ -294,20 +469,39 @@
 
                     <p>
 
-                        Automation, scripting, APIs and backend development.
+                        Automation, scripting, APIs
+                        and backend development.
 
                     </p>
 
-                </div>
+
+                    <div class="skill-line"></div>
+
+                </article>
 
 
 
                 <!-- AUTOMATION -->
 
-                <div class="skill-card">
+                <article
+                    class="skill-card tilt reveal"
+                >
 
-                    <div class="skill-number">
-                        02
+                    <div class="skill-top">
+
+                        <span>
+                            02
+                        </span>
+
+                        <span>
+                            AUTO
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-icon">
+                        ↯
                     </div>
 
 
@@ -318,20 +512,39 @@
 
                     <p>
 
-                        Turning repetitive tasks into simple systems.
+                        Turning repetitive tasks
+                        into simple systems.
 
                     </p>
 
-                </div>
+
+                    <div class="skill-line"></div>
+
+                </article>
 
 
 
                 <!-- AI -->
 
-                <div class="skill-card">
+                <article
+                    class="skill-card tilt reveal"
+                >
 
-                    <div class="skill-number">
-                        03
+                    <div class="skill-top">
+
+                        <span>
+                            03
+                        </span>
+
+                        <span>
+                            AI
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-icon">
+                        ✦
                     </div>
 
 
@@ -342,20 +555,39 @@
 
                     <p>
 
-                        Building useful applications with AI integrations.
+                        Building useful applications
+                        with AI integrations.
 
                     </p>
 
-                </div>
+
+                    <div class="skill-line"></div>
+
+                </article>
 
 
 
                 <!-- BACKEND -->
 
-                <div class="skill-card">
+                <article
+                    class="skill-card tilt reveal"
+                >
 
-                    <div class="skill-number">
-                        04
+                    <div class="skill-top">
+
+                        <span>
+                            04
+                        </span>
+
+                        <span>
+                            WEB
+                        </span>
+
+                    </div>
+
+
+                    <div class="skill-icon">
+                        ⌁
                     </div>
 
 
@@ -366,11 +598,15 @@
 
                     <p>
 
-                        Flask, databases, APIs and server-side logic.
+                        APIs, databases and
+                        server-side logic.
 
                     </p>
 
-                </div>
+
+                    <div class="skill-line"></div>
+
+                </article>
 
 
             </div>
@@ -390,30 +626,47 @@
 
             <div class="section-label">
 
-                03 / PROJECTS
+                <span>
+                    03
+                </span>
+
+                / PROJECTS
 
             </div>
 
 
 
-            <div class="section-heading">
+            <div class="section-heading reveal">
 
 
-                <h2>
+                <div>
 
-                    Things I've
+                    <p class="mini-label">
 
-                    <span>
-                        built.
-                    </span>
+                        SELECTED WORK
 
-                </h2>
+                    </p>
+
+
+
+                    <h2>
+
+                        Things I've
+
+                        <span>
+                            built.
+                        </span>
+
+                    </h2>
+
+                </div>
 
 
 
                 <p>
 
-                    A few projects I've worked on.
+                    Small ideas turned into
+                    real, usable projects.
 
                 </p>
 
@@ -422,228 +675,237 @@
 
 
 
-            <!-- ================= TAARA ================= -->
-
-            <article class="project-card">
-
-
-                <div class="project-index">
-
-                    01
-
-                </div>
+            <div class="project-list">
 
 
 
-                <div class="project-main">
+                <!-- ================= TAARA ================= -->
+
+                <article
+                    class="project-card reveal"
+                >
 
 
-                    <div class="project-top">
+                    <div class="project-index">
 
-
-                        <span class="project-category">
-
-                            PERSONAL ASSISTANT
-
-                        </span>
-
-
-
-                        <span class="project-year">
-
-                            2026
-
-                        </span>
-
+                        01
 
                     </div>
 
 
 
-                    <h3>
-
-                        Taara
-
-                    </h3>
+                    <div class="project-main">
 
 
+                        <div class="project-top">
 
-                    <p>
+                            <span>
+                                TELEGRAM PERSONAL ASSISTANT
+                            </span>
 
-                        A Telegram-based personal assistant built with
-                        Python, Telethon and OpenAI. Designed to respond
-                        naturally and automate everyday interactions.
+                            <span>
+                                2026
+                            </span>
 
-                    </p>
-
-
-
-                    <div class="tech-stack">
-
-
-                        <span>
-                            Python
-                        </span>
-
-
-                        <span>
-                            Telethon
-                        </span>
-
-
-                        <span>
-                            OpenAI
-                        </span>
-
-
-                        <span>
-                            AsyncIO
-                        </span>
-
-
-                    </div>
+                        </div>
 
 
 
-                    <!-- DIRECT TAARA REPOSITORY -->
-
-                    <a
-                        href="https://github.com/i-vaayu18/Taara"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-
-                        View Taara on GitHub
-
-                        <span>
-                            ↗
-                        </span>
-
-                    </a>
+                        <div class="project-title-row">
 
 
-                </div>
+                            <h3>
+                                Taara
+                            </h3>
 
 
-            </article>
+                            <span class="project-symbol">
+                                ↗
+                            </span>
+
+
+                        </div>
 
 
 
-            <!-- ================= AUTOMAILERPRO ================= -->
+                        <p>
 
-            <article class="project-card">
+                            A Telegram personal assistant built with
+                            Python, Telethon and OpenAI. Taara can
+                            automatically respond to incoming messages,
+                            reply when mentioned or replied to in groups
+                            and channels, and can be manually enabled or
+                            disabled using simple controls.
 
-
-                <div class="project-index">
-
-                    02
-
-                </div>
-
-
-
-                <div class="project-main">
-
-
-                    <div class="project-top">
-
-
-                        <span class="project-category">
-
-                            EMAIL AUTOMATION
-
-                        </span>
+                        </p>
 
 
 
-                        <span class="project-year">
+                        <div class="tech-stack">
 
-                            2026
+                            <span>
+                                Python
+                            </span>
 
-                        </span>
+                            <span>
+                                Telethon
+                            </span>
+
+                            <span>
+                                OpenAI
+                            </span>
+
+                            <span>
+                                AsyncIO
+                            </span>
+
+                            <span>
+                                Telegram
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- DIRECT TAARA REPOSITORY -->
+
+                        <a
+                            href="https://github.com/i-vaayu18/Taara---Personal-Assistant"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+
+                            View Taara Repository
+
+                            <span>
+                                ↗
+                            </span>
+
+                        </a>
 
 
                     </div>
 
 
-
-                    <h3>
-
-                        AutoMailerPro
-
-                    </h3>
+                </article>
 
 
 
-                    <p>
+                <!-- ================= AUTOMAILERPRO ================= -->
 
-                        A Python-based bulk email automation tool that
-                        sends personalized emails with attachments using
-                        Gmail SMTP and Excel.
-
-                    </p>
+                <article
+                    class="project-card reveal"
+                >
 
 
+                    <div class="project-index">
 
-                    <div class="tech-stack">
-
-
-                        <span>
-                            Python
-                        </span>
-
-
-                        <span>
-                            Gmail SMTP
-                        </span>
-
-
-                        <span>
-                            Pandas
-                        </span>
-
-
-                        <span>
-                            OpenPyXL
-                        </span>
-
+                        02
 
                     </div>
 
 
 
-                    <!-- DIRECT AUTOMAILERPRO REPOSITORY -->
-
-                    <a
-                        href="https://github.com/i-vaayu18/AutoMailerPro"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-
-                        View AutoMailerPro on GitHub
-
-                        <span>
-                            ↗
-                        </span>
-
-                    </a>
+                    <div class="project-main">
 
 
-                </div>
+                        <div class="project-top">
+
+                            <span>
+                                EMAIL AUTOMATION
+                            </span>
+
+                            <span>
+                                2026
+                            </span>
+
+                        </div>
 
 
-            </article>
+
+                        <div class="project-title-row">
+
+
+                            <h3>
+                                AutoMailerPro
+                            </h3>
+
+
+                            <span class="project-symbol">
+                                ↗
+                            </span>
+
+
+                        </div>
+
+
+
+                        <p>
+
+                            A Python-based bulk email automation tool
+                            that sends personalized emails with optional
+                            attachments using Gmail SMTP and Excel.
+
+                        </p>
+
+
+
+                        <div class="tech-stack">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                Gmail SMTP
+                            </span>
+
+                            <span>
+                                Pandas
+                            </span>
+
+                            <span>
+                                OpenPyXL
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- DIRECT AUTOMAILERPRO REPOSITORY -->
+
+                        <a
+                            href="https://github.com/i-vaayu18/AutoMailerPro"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+
+                            View AutoMailerPro Repository
+
+                            <span>
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+            </div>
 
 
         </section>
 
 
 
-        <!-- =====================================================
-                         GET IN TOUCH
-        ===================================================== -->
+        <!-- ================= GET IN TOUCH ================= -->
 
         <section
             id="contact"
@@ -653,18 +915,22 @@
 
             <div class="section-label">
 
-                04 / GET IN TOUCH
+                <span>
+                    04
+                </span>
+
+                / GET IN TOUCH
 
             </div>
 
 
 
-            <div class="contact-content">
+            <div class="contact-heading reveal">
 
 
-                <p class="contact-small">
+                <p class="mini-label">
 
-                    HAVE A PROJECT IN MIND?
+                    OPEN FOR A CONVERSATION
 
                 </p>
 
@@ -682,239 +948,228 @@
 
 
 
-                <p class="contact-description">
+                <p>
 
-                    Have an idea, want to collaborate, or simply want to say hello?
-                    Feel free to reach out through any of the platforms below.
+                    Have an idea, want to collaborate,
+                    or simply want to say hello?
+                    Pick your preferred way to reach me.
 
                 </p>
 
 
+            </div>
 
-                <!-- ================= SOCIAL CONTACTS ================= -->
 
-                <div class="social-grid">
 
+            <div class="social-grid">
 
 
-                    <!-- GITHUB PROFILE -->
 
-                    <a
-                        href="https://github.com/i-vaayu18"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-card"
-                    >
+                <!-- ================= GITHUB ================= -->
 
-                        <div class="social-icon">
-                            ⌘
-                        </div>
+                <a
+                    href="https://github.com/i-vaayu18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-card reveal magnetic"
+                >
 
+                    <div class="social-icon">
+                        ⌘
+                    </div>
 
-                        <div class="social-info">
 
-                            <span>
-                                GITHUB
-                            </span>
+                    <div>
 
-                            <strong>
-                                github.com/i-vaayu18
-                            </strong>
+                        <span>
+                            GITHUB
+                        </span>
 
-                        </div>
+                        <strong>
+                            github.com/i-vaayu18
+                        </strong>
 
+                    </div>
 
-                        <div class="social-arrow">
-                            ↗
-                        </div>
 
-                    </a>
+                    <b>
+                        ↗
+                    </b>
 
+                </a>
 
 
-                    <!-- LINKEDIN -->
 
-                    <a
-                        href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-card"
-                    >
+                <!-- ================= LINKEDIN ================= -->
 
-                        <div class="social-icon linkedin-icon">
+                <a
+                    href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-card reveal magnetic"
+                >
 
-                            in
+                    <div class="social-icon">
+                        in
+                    </div>
 
-                        </div>
 
+                    <div>
 
-                        <div class="social-info">
+                        <span>
+                            LINKEDIN
+                        </span>
 
-                            <span>
-                                LINKEDIN
-                            </span>
+                        <strong>
+                            Connect with me
+                        </strong>
 
-                            <strong>
-                                Connect with me
-                            </strong>
+                    </div>
 
-                        </div>
 
+                    <b>
+                        ↗
+                    </b>
 
-                        <div class="social-arrow">
-                            ↗
-                        </div>
+                </a>
 
-                    </a>
 
 
+                <!-- ================= EMAIL ================= -->
 
-                    <!-- GMAIL -->
+                <a
+                    href="mailto:manishsinghbora18@gmail.com"
+                    class="social-card reveal magnetic"
+                >
 
-                    <a
-                        href="mailto:manishsinghbora18@gmail.com"
-                        class="social-card"
-                    >
+                    <div class="social-icon">
+                        @
+                    </div>
 
-                        <div class="social-icon gmail-icon">
 
-                            @
+                    <div>
 
-                        </div>
+                        <span>
+                            EMAIL
+                        </span>
 
+                        <strong>
+                            manishsinghbora18@gmail.com
+                        </strong>
 
-                        <div class="social-info">
+                    </div>
 
-                            <span>
-                                EMAIL
-                            </span>
 
-                            <strong>
-                                manishsinghbora18@gmail.com
-                            </strong>
+                    <b>
+                        ↗
+                    </b>
 
-                        </div>
+                </a>
 
 
-                        <div class="social-arrow">
-                            ↗
-                        </div>
 
-                    </a>
+                <!-- ================= INSTAGRAM ================= -->
 
+                <a
+                    href="https://www.instagram.com/i.vaayu18/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-card reveal magnetic"
+                >
 
+                    <div class="social-icon">
+                        ◎
+                    </div>
 
-                    <!-- INSTAGRAM -->
 
-                    <a
-                        href="https://www.instagram.com/i.vaayu18/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-card"
-                    >
+                    <div>
 
-                        <div class="social-icon instagram-icon">
+                        <span>
+                            INSTAGRAM
+                        </span>
 
-                            ◎
+                        <strong>
+                            @i.vaayu18
+                        </strong>
 
-                        </div>
+                    </div>
 
 
-                        <div class="social-info">
+                    <b>
+                        ↗
+                    </b>
 
-                            <span>
-                                INSTAGRAM
-                            </span>
+                </a>
 
-                            <strong>
-                                @i.vaayu18
-                            </strong>
 
-                        </div>
 
+                <!-- ================= WHATSAPP ================= -->
 
-                        <div class="social-arrow">
-                            ↗
-                        </div>
+                <a
+                    href="https://wa.me/919625178828"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-card reveal magnetic"
+                >
 
-                    </a>
+                    <div class="social-icon">
+                        ◉
+                    </div>
 
 
+                    <div>
 
-                    <!-- WHATSAPP -->
+                        <span>
+                            WHATSAPP
+                        </span>
 
-                    <a
-                        href="https://wa.me/919625178828"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-card"
-                    >
+                        <strong>
+                            Chat with me
+                        </strong>
 
-                        <div class="social-icon whatsapp-icon">
+                    </div>
 
-                            ◉
 
-                        </div>
+                    <b>
+                        ↗
+                    </b>
 
+                </a>
 
-                        <div class="social-info">
 
-                            <span>
-                                WHATSAPP
-                            </span>
 
-                            <strong>
-                                Chat with me
-                            </strong>
+                <!-- ================= TELEGRAM ================= -->
 
-                        </div>
+                <a
+                    href="https://t.me/i_vaayu18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-card reveal magnetic"
+                >
 
+                    <div class="social-icon">
+                        ➤
+                    </div>
 
-                        <div class="social-arrow">
-                            ↗
-                        </div>
 
-                    </a>
+                    <div>
 
+                        <span>
+                            TELEGRAM
+                        </span>
 
+                        <strong>
+                            @i_vaayu18
+                        </strong>
 
-                    <!-- TELEGRAM -->
+                    </div>
 
-                    <a
-                        href="https://t.me/i_vaayu18"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-card"
-                    >
 
-                        <div class="social-icon telegram-icon">
+                    <b>
+                        ↗
+                    </b>
 
-                            ➤
-
-                        </div>
-
-
-                        <div class="social-info">
-
-                            <span>
-                                TELEGRAM
-                            </span>
-
-                            <strong>
-                                @i_vaayu18
-                            </strong>
-
-                        </div>
-
-
-                        <div class="social-arrow">
-                            ↗
-                        </div>
-
-                    </a>
-
-
-                </div>
+                </a>
 
 
             </div>
@@ -950,7 +1205,7 @@
 
         <p>
 
-            © 2026 VaaYU
+            © <span id="year"></span> VaaYU
 
         </p>
 
