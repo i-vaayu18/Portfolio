@@ -1,1120 +1,5184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VaaYU — Developer portfolio">
-<title>VaaYU — Portfolio</title>
 
-<!-- Keep your existing Font Awesome / Google Font links here if your base
-     index already uses them. -->
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VaaYU — Developer portfolio showcasing projects, automation, AI and ways to connect."
+    >
+
+    <title>VaaYU — Developer Portfolio</title>
+
+    <!-- ================= FONT ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ================= FONT AWESOME ================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
 
 <style>
 
 /* =========================================================
-   VaaYU Portfolio — Inline Premium Animation Layer
-   Additive styles: preserves existing layout
+   VaaYU PORTFOLIO
+   FUTURISTIC AUTOMATION THEME
 ========================================================= */
 
-html { scroll-behavior: smooth; }
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --bg: #050505;
+    --bg-soft: #090909;
+
+    --surface: rgba(255,255,255,.035);
+    --surface-hover: rgba(255,255,255,.065);
+
+    --border: rgba(255,255,255,.10);
+    --border-bright: rgba(255,255,255,.20);
+
+    --text: #f5f5f5;
+    --muted: #969696;
+    --dim: #5c5c5c;
+
+    --accent: #ffffff;
+
+    --radius: 20px;
+
+    --ease:
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+body.light-theme {
+
+    --bg: #f5f5f5;
+    --bg-soft: #eeeeee;
+
+    --surface: rgba(0,0,0,.035);
+    --surface-hover: rgba(0,0,0,.065);
+
+    --border: rgba(0,0,0,.10);
+    --border-bright: rgba(0,0,0,.20);
+
+    --text: #111111;
+    --muted: #666666;
+    --dim: #999999;
+
+    --accent: #111111;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
+
+    min-height: 100vh;
+
     overflow-x: hidden;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    transition:
+        background .5s ease,
+        color .5s ease;
+
 }
 
-/* Loader */
-.page-loader {
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before {
+
+    content: "";
+
     position: fixed;
+
     inset: 0;
-    z-index: 99999;
-    display: grid;
-    place-items: center;
-    background: #050505;
-    transition: opacity .8s cubic-bezier(.2,.8,.2,1), visibility .8s ease;
-}
-.page-loader.loaded {
-    opacity: 0;
-    visibility: hidden;
+
+    z-index: -5;
+
     pointer-events: none;
-}
-.loader-inner {
-    width: min(260px, 80vw);
-    text-align: center;
-}
-.loader-mark {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 22px;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(255,255,255,.18);
-    border-radius: 18px;
-    background: linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
-    box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    animation: loaderMarkIn .8s cubic-bezier(.2,.8,.2,1) both;
-}
-.loader-mark span { font-size:25px; font-weight:800; }
-.loader-name {
-    font-size:19px;
-    font-weight:800;
-    letter-spacing:-.04em;
-    opacity:0;
-    animation: loaderNameIn .7s ease .35s forwards;
-}
-.loader-name span { color:#777; }
-.loader-line {
-    width:100%;
-    height:1px;
-    margin-top:26px;
-    overflow:hidden;
-    background:rgba(255,255,255,.1);
-}
-.loader-line span {
-    display:block;
-    width:0;
-    height:100%;
-    background:#fff;
-    animation:loaderLine 1.1s cubic-bezier(.2,.8,.2,1) .2s forwards;
-}
-.loader-status {
-    margin-top:13px;
-    color:#555;
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:.22em;
-    opacity:0;
-    animation:loaderStatus .6s ease .6s forwards;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,255,255,.045),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(255,255,255,.035),
+            transparent 28%
+        );
+
 }
 
-@keyframes loaderMarkIn {
-    from { opacity:0; transform:translateY(20px) scale(.8) rotate(-8deg); }
-    to { opacity:1; transform:translateY(0) scale(1) rotate(0); }
-}
-@keyframes loaderNameIn {
-    from { opacity:0; transform:translateY(10px); }
-    to { opacity:1; transform:translateY(0); }
-}
-@keyframes loaderLine { from { width:0; } to { width:100%; } }
-@keyframes loaderStatus {
-    from { opacity:0; transform:translateY(5px); }
-    to { opacity:1; transform:translateY(0); }
+
+body.light-theme::before {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0,0,0,.035),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(0,0,0,.025),
+            transparent 28%
+        );
+
 }
 
-/* Hero */
-.hero-animate {
-    opacity:0;
-    animation:heroElementIn .85s cubic-bezier(.2,.8,.2,1) var(--hero-delay) forwards;
-}
-@keyframes heroElementIn {
-    from { opacity:0; transform:translateY(25px); filter:blur(7px); }
-    to { opacity:1; transform:translateY(0); filter:blur(0); }
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursor-glow {
+
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025) 35%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    transition:
+        opacity .3s ease;
+
 }
 
-/* Reveal */
-.reveal.visible {
-    animation:revealSoft .8s cubic-bezier(.2,.8,.2,1) both;
-}
-@keyframes revealSoft {
-    from { opacity:0; transform:translateY(28px); filter:blur(5px); }
-    to { opacity:1; transform:translateY(0); filter:blur(0); }
+body.light-theme .cursor-glow {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,0,0,.045),
+            transparent 70%
+        );
+
 }
 
-/* Cards — preserve their normal transform until JS applies tilt */
-.project-card,
-.skill-card {
-    --rx:0deg;
-    --ry:0deg;
-    will-change:transform;
-}
-.project-card.tilting,
-.skill-card.tilting {
-    transition:border-color .25s ease, background .25s ease, box-shadow .25s ease;
-}
-.project-card.tilting {
-    transform:perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-4px);
-}
-.skill-card.tilting {
-    transform:perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-5px);
-}
 
-/* Buttons */
-.magnetic {
-    --mx:0px;
-    --my:0px;
-    transform:translate(var(--mx),var(--my));
-    will-change:transform;
-}
-.magnetic.clicked,
-.project-link.clicked,
-.btn.clicked,
-.github-button.clicked {
-    animation:buttonClick .45s ease;
-}
-@keyframes buttonClick {
-    0% { scale:1; }
-    45% { scale:.95; }
-    100% { scale:1; }
-}
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
 
-/* Shine */
-.btn,.github-button,.project-link { position:relative; overflow:hidden; }
-.btn::after,.github-button::after,.project-link::after {
-    content:"";
-    position:absolute;
-    top:0; left:-120%;
-    width:70%; height:100%;
-    transform:skewX(-18deg);
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
-    transition:left .7s ease;
-    pointer-events:none;
-}
-.btn:hover::after,.github-button:hover::after,.project-link:hover::after { left:140%; }
-
-/* Socials */
-.hero-socials a,.footer-right a {
-    transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s ease,background .3s ease;
-}
-.hero-socials a.social-hover,.footer-right a.social-hover {
-    transform:translateY(-4px) scale(1.05);
-}
-.hero-socials a i,.footer-right a i { transition:transform .3s ease; }
-.hero-socials a:hover i,.footer-right a:hover i {
-    transform:scale(1.12) rotate(-4deg);
-}
-
-/* Project icon */
-.project-icon { overflow:hidden; transition:transform .4s cubic-bezier(.2,.8,.2,1); }
-.project-card:hover .project-icon { transform:translateY(-3px) rotate(-3deg); }
-
-/* Contact arrow */
-.contact-arrow { transition:transform .35s cubic-bezier(.2,.8,.2,1); }
-.contact-card:hover .contact-arrow { transform:translate(4px,-4px); }
-
-/* Progress glow */
 .scroll-progress {
-    transform-origin:left center;
-    box-shadow:0 0 10px rgba(255,255,255,.7),0 0 25px rgba(255,255,255,.18);
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    z-index: 99999;
+
+    background: var(--accent);
+
+    transform-origin: left center;
+
+    box-shadow:
+        0 0 10px var(--accent),
+        0 0 25px rgba(255,255,255,.2);
+
 }
 
-/* Cursor */
-.cursor-glow { pointer-events:none; }
 
-/* Mobile */
-@media (max-width:767px) {
-    .cursor-glow { display:none !important; }
-    .project-card.tilting,
-    .skill-card.tilting { transform:none !important; }
-    .magnetic { transform:none !important; }
+/* =========================================================
+   BOOT / LOADING SCREEN
+========================================================= */
+
+.page-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #050505;
+
+    transition:
+        opacity .8s var(--ease),
+        visibility .8s ease;
+
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion:reduce) {
-    *,*::before,*::after {
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        scroll-behavior:auto !important;
-        transition-duration:.01ms !important;
+.page-loader.loaded {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.loader-box {
+
+    width: min(360px, 82vw);
+
+    text-align: center;
+
+}
+
+
+.loader-logo {
+
+    width: 72px;
+    height: 72px;
+
+    margin: auto;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius: 20px;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation:
+        loaderLogoIn .8s var(--ease) both;
+
+}
+
+
+.loader-logo::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -50%;
+
+    background:
+        conic-gradient(
+            transparent,
+            rgba(255,255,255,.4),
+            transparent 30%
+        );
+
+    animation:
+        loaderSpin 1.7s linear infinite;
+
+}
+
+
+.loader-logo span {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.loader-title {
+
+    margin-top: 22px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: -.04em;
+
+    opacity: 0;
+
+    animation:
+        loaderText .7s ease .3s forwards;
+
+}
+
+
+.loader-subtitle {
+
+    margin-top: 8px;
+
+    color: #666;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .25em;
+
+    opacity: 0;
+
+    animation:
+        loaderText .7s ease .5s forwards;
+
+}
+
+
+.loader-track {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 25px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    overflow: hidden;
+
+}
+
+
+.loader-track span {
+
+    display: block;
+
+    width: 0;
+
+    height: 100%;
+
+    background: white;
+
+    animation:
+        loaderProgress 1.4s var(--ease) .2s forwards;
+
+}
+
+
+@keyframes loaderLogoIn {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.65)
+            rotate(-10deg);
     }
-    .project-card,.skill-card { transform:none !important; }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+
+}
+
+
+@keyframes loaderSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes loaderText {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes loaderProgress {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 5000;
+
+    height: 76px;
+
+    padding:
+        0 clamp(20px, 5vw, 70px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid transparent;
+
+    background:
+        rgba(5,5,5,.55);
+
+    backdrop-filter:
+        blur(18px);
+
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+/* continuous automation flow */
+
+.navbar::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -1px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            transparent 10%,
+            rgba(255,255,255,.55),
+            transparent 35%,
+            transparent 60%,
+            rgba(255,255,255,.35),
+            transparent 90%
+        );
+
+    background-size: 220% 100%;
+
+    animation:
+        flowLine 5s linear infinite;
+
+}
+
+
+.navbar::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 120px;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.035),
+            transparent
+        );
+
+    filter: blur(3px);
+
+    animation:
+        headerSweep 7s linear infinite;
+
+}
+
+
+@keyframes flowLine {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 220% 0;
+    }
+
+}
+
+
+@keyframes headerSweep {
+
+    from {
+        transform: translateX(-150px);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 150px));
+    }
+
+}
+
+
+.navbar.scrolled {
+
+    background:
+        rgba(5,5,5,.86);
+
+    border-color:
+        var(--border);
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.20);
+
+}
+
+
+body.light-theme .navbar {
+
+    background:
+        rgba(245,245,245,.68);
+
+}
+
+
+body.light-theme .navbar.scrolled {
+
+    background:
+        rgba(245,245,245,.90);
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: -.06em;
+
+    position: relative;
+
+}
+
+
+.logo span {
+
+    opacity: .4;
+
+}
+
+
+.logo::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--text);
+
+    transition:
+        width .4s var(--ease);
+
+}
+
+
+.logo:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+.nav-links a,
+.mobile-menu a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        color .25s ease;
+
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+}
+
+
+.nav-links a::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -8px;
+
+    height: 1px;
+
+    background: var(--text);
+
+    transform:
+        scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform .35s var(--ease);
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--text);
+
+}
+
+
+.nav-links a:hover::before {
+
+    transform:
+        scaleX(1);
+
+}
+
+
+/* =========================================================
+   NAV CTA
+========================================================= */
+
+.nav-cta {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        10px 15px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        var(--surface);
+
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.nav-cta:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        var(--surface-hover);
+
+    border-color:
+        var(--border-bright);
+
+}
+
+
+.nav-cta i {
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+.theme-toggle {
+
+    width: 42px;
+    height: 42px;
+
+    margin-left: 8px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background:
+        var(--surface);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.theme-toggle:hover {
+
+    transform:
+        translateY(-2px)
+        rotate(5deg);
+
+    background:
+        var(--surface-hover);
+
+    border-color:
+        var(--border-bright);
+
+}
+
+
+.theme-toggle:active {
+
+    transform:
+        scale(.92);
+
+}
+
+
+.theme-toggle i {
+
+    transition:
+        transform .5s var(--ease);
+
+}
+
+
+.theme-toggle:hover i {
+
+    transform:
+        rotate(25deg)
+        scale(1.1);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background:
+        var(--surface);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
+
+    position: fixed;
+
+    top: 76px;
+
+    left: 15px;
+    right: 15px;
+
+    z-index: 4000;
+
+    padding: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        rgba(10,10,10,.94);
+
+    backdrop-filter:
+        blur(22px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-12px)
+        scale(.98);
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .3s var(--ease);
+
+}
+
+
+.mobile-menu.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.mobile-menu a {
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+}
+
+
+.mobile-menu a:hover {
+
+    color: var(--text);
+
+    background:
+        var(--surface);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        120px 24px 90px;
+
+    overflow: hidden;
+
+}
+
+
+/* futuristic grid */
+
+.hero-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        60px 60px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 80%
+        );
+
+    animation:
+        gridMove 18s linear infinite;
+
+}
+
+
+@keyframes gridMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 60px 60px;
+    }
+
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.055),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    animation:
+        heroPulse 6s ease-in-out infinite;
+
+}
+
+
+@keyframes heroPulse {
+
+    0%,100% {
+        transform:
+            scale(.92)
+            translate(0,0);
+        opacity: .6;
+    }
+
+    50% {
+        transform:
+            scale(1.08)
+            translate(25px,-15px);
+        opacity: 1;
+    }
+
+}
+
+
+.hero-content {
+
+    width: min(950px, 100%);
+
+    text-align: center;
+
+    position: relative;
+
+}
+
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    transition:
+        opacity .8s ease,
+        transform .8s var(--ease);
+
+}
+
+
+/* =========================================================
+   STATUS PILL
+========================================================= */
+
+.status-pill {
+
+    width: fit-content;
+
+    margin:
+        0 auto 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        8px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.status-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 0 rgba(255,255,255,.5);
+
+    animation:
+        statusPulse 2s infinite;
+
+}
+
+
+@keyframes statusPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(255,255,255,.5);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 8px rgba(255,255,255,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(255,255,255,0);
+    }
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.eyebrow {
+
+    margin-bottom: 18px;
+
+    color: var(--dim);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .22em;
+
+}
+
+
+.hero h1 {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    font-size:
+        clamp(48px, 8vw, 96px);
+
+    line-height: .94;
+
+    letter-spacing:
+        -.075em;
+
+    font-weight: 800;
+
+}
+
+
+.hero h1 span,
+.section-heading h2 span {
+
+    display: block;
+
+    color: var(--muted);
+
+}
+
+
+.hero-description {
+
+    max-width: 620px;
+
+    margin:
+        28px auto 0;
+
+    color: var(--muted);
+
+    font-size:
+        clamp(14px, 1.6vw, 17px);
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.btn {
+
+    min-height: 48px;
+
+    padding:
+        0 19px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.btn-primary {
+
+    color: #050505;
+
+    background: #fff;
+
+    border:
+        1px solid #fff;
+
+}
+
+
+.btn-secondary {
+
+    color: var(--text);
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.btn-primary:hover {
+
+    background:
+        #e8e8e8;
+
+}
+
+
+.btn-secondary:hover {
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+}
+
+
+/* shine */
+
+.btn::after,
+.project-link::after,
+.github-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    transform:
+        skewX(-20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.28),
+            transparent
+        );
+
+    transition:
+        left .7s ease;
+
+}
+
+
+.btn:hover::after,
+.project-link:hover::after,
+.github-button:hover::after {
+
+    left: 140%;
+
+}
+
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.hero-socials {
+
+    margin-top: 38px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.hero-socials a,
+.footer-right a {
+
+    width: 44px;
+    height: 44px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 44px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    color: var(--muted);
+
+    background:
+        var(--surface);
+
+    text-decoration: none;
+
+    transition:
+        transform .35s var(--ease),
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+}
+
+
+.hero-socials a:hover,
+.footer-right a:hover {
+
+    color: var(--text);
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+    transform:
+        translateY(-5px)
+        scale(1.06);
+
+}
+
+
+.hero-socials a i,
+.footer-right a i {
+
+    transition:
+        transform .35s var(--ease);
+
+}
+
+
+.hero-socials a:hover i,
+.footer-right a:hover i {
+
+    transform:
+        scale(1.15)
+        rotate(-5deg);
+
+}
+
+
+/* =========================================================
+   SCROLL HINT
+========================================================= */
+
+.scroll-hint {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--dim);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+}
+
+
+.scroll-hint span {
+
+    width: 18px;
+    height: 28px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 999px;
+
+    position: relative;
+
+}
+
+
+.scroll-hint span::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 6px;
+
+    left: 50%;
+
+    width: 3px;
+    height: 6px;
+
+    border-radius: 5px;
+
+    background: var(--muted);
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        scrollDot 1.7s ease-in-out infinite;
+
+}
+
+
+@keyframes scrollDot {
+
+    0%,100% {
+        transform:
+            translate(-50%,0);
+        opacity: .4;
+    }
+
+    50% {
+        transform:
+            translate(-50%,9px);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin: auto;
+
+    padding:
+        120px 0;
+
+}
+
+
+.section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 55px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(38px, 5vw, 65px);
+
+    line-height: 1;
+
+    letter-spacing: -.065em;
+
+}
+
+
+.section-description {
+
+    max-width: 580px;
+
+    margin-top: 20px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+}
+
+
+.about-text {
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    font-size: 15px;
+
+}
+
+
+.about-text p + p {
+
+    margin-top: 20px;
+
+}
+
+
+.about-stats {
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+.stat-card {
+
+    padding: 23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        var(--surface);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .4s var(--ease),
+        border-color .3s ease,
+        background .3s ease;
+
+}
+
+
+.stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.045),
+            transparent
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform .8s ease;
+
+}
+
+
+.stat-card:hover::before {
+
+    transform:
+        translateX(100%);
+
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateX(6px);
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+}
+
+
+.stat-card span {
+
+    color: var(--dim);
+
+    font-size: 10px;
+
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 18px;
+
+}
+
+
+.stat-card p {
+
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.skill-card {
+
+    min-height: 250px;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        var(--surface);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.skill-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -90px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.045);
+
+    filter: blur(30px);
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+.skill-card:hover::before {
+
+    transform:
+        scale(1.5);
+
+}
+
+
+.skill-card:hover {
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.18);
+
+}
+
+
+.skill-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 14px;
+
+    color: var(--text);
+
+    background:
+        var(--surface);
+
+    transition:
+        transform .4s var(--ease);
+
+}
+
+
+.skill-card:hover .skill-icon {
+
+    transform:
+        translateZ(25px)
+        rotate(-5deg)
+        scale(1.08);
+
+}
+
+
+.skill-icon i {
+
+    font-size: 19px;
+
+}
+
+
+.skill-card h3 {
+
+    margin-top: 40px;
+
+    font-size: 18px;
+
+    letter-spacing: -.03em;
+
+}
+
+
+.skill-card p {
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.project-card {
+
+    min-height: 520px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        var(--surface);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    transition:
+        border-color .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+.project-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 15%,
+            rgba(255,255,255,.055),
+            transparent 60%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform .9s var(--ease);
+
+    pointer-events: none;
+
+}
+
+
+.project-card:hover::before {
+
+    transform:
+        translateX(120%);
+
+}
+
+
+.project-card:hover {
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.22);
+
+}
+
+
+.project-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.project-icon {
+
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    background:
+        var(--surface);
+
+    transition:
+        transform .45s var(--ease),
+        border-color .3s ease;
+
+}
+
+
+.project-card:hover .project-icon {
+
+    transform:
+        translateZ(25px)
+        rotate(-5deg)
+        scale(1.08);
+
+    border-color:
+        var(--border-bright);
+
+}
+
+
+.project-icon i {
+
+    font-size: 21px;
+
+}
+
+
+.project-number {
+
+    color: var(--dim);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.project-content {
+
+    margin-top: 45px;
+
+}
+
+
+.project-meta {
+
+    color: var(--dim);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
+}
+
+
+.project-content h3 {
+
+    margin-top: 10px;
+
+    font-size: 28px;
+
+    letter-spacing: -.05em;
+
+}
+
+
+.project-content p {
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.75;
+
+}
+
+
+.project-footer {
+
+    margin-top: auto;
+
+    padding-top: 28px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.tech-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+}
+
+
+.tech-tags span {
+
+    padding:
+        6px 8px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 7px;
+
+    color: var(--dim);
+
+    font-size: 9px;
+
+}
+
+
+.project-link {
+
+    min-height: 38px;
+
+    padding:
+        0 11px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    color: var(--text);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s var(--ease),
+        border-color .3s ease,
+        background .3s ease;
+
+}
+
+
+.project-link:hover {
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+}
+
+
+.github-projects {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        var(--surface);
+
+}
+
+
+.github-projects p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.github-button {
+
+    min-height: 42px;
+
+    padding:
+        0 15px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.github-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.contact-card {
+
+    min-height: 105px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background:
+        var(--surface);
+
+    transition:
+        transform .4s var(--ease),
+        border-color .3s ease,
+        background .3s ease;
+
+}
+
+
+.contact-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--border-bright);
+
+    background:
+        var(--surface-hover);
+
+}
+
+
+.contact-icon {
+
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 14px;
+
+    background:
+        var(--surface);
+
+}
+
+
+.contact-icon i {
+
+    font-size: 18px;
+
+}
+
+
+.contact-info {
+
+    min-width: 0;
+
+}
+
+
+.contact-info span {
+
+    display: block;
+
+    color: var(--dim);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.contact-info strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+}
+
+
+.contact-arrow {
+
+    margin-left: auto;
+
+    color: var(--dim);
+
+    transition:
+        transform .35s var(--ease),
+        color .25s ease;
+
+}
+
+
+.contact-card:hover .contact-arrow {
+
+    color: var(--text);
+
+    transform:
+        translate(4px,-4px);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin: auto;
+
+    padding:
+        60px 0 25px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.footer-inner {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.footer-inner p {
+
+    margin-top: 8px;
+
+    color: var(--dim);
+
+    font-size: 11px;
+
+}
+
+
+.footer-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.footer-bottom {
+
+    margin-top: 55px;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color: var(--dim);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   MAGNETIC
+========================================================= */
+
+.magnetic {
+
+    will-change: transform;
+
+}
+
+
+/* =========================================================
+   CLICK FEEDBACK
+========================================================= */
+
+.clicked {
+
+    animation:
+        clickPop .4s ease;
+
+}
+
+
+@keyframes clickPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(.94);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links,
+    .nav-cta {
+
+        display: none;
+
+    }
+
+    .menu-toggle {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+    }
+
+    .theme-toggle {
+
+        margin-left: auto;
+
+        margin-right: 8px;
+
+    }
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .projects-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .project-card {
+
+        min-height: 440px;
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        height: 68px;
+
+        padding:
+            0 18px;
+
+    }
+
+    .mobile-menu {
+
+        top: 68px;
+
+    }
+
+    .hero {
+
+        padding-top: 110px;
+
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(44px, 13vw, 72px);
+
+    }
+
+    .section {
+
+        width:
+            min(100% - 30px, 650px);
+
+        padding:
+            85px 0;
+
+    }
+
+    .about-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 35px;
+
+    }
+
+    .contact-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .github-projects {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .footer-inner {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .skills-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .btn {
+
+        width: 100%;
+
+    }
+
+    .hero-socials {
+
+        gap: 8px;
+
+    }
+
+    .hero-socials a,
+    .footer-right a {
+
+        width: 42px;
+        height: 42px;
+
+        flex-basis: 42px;
+
+    }
+
+    .project-footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .project-link {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+
+    }
+
+    .cursor-glow {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE EFFECT CONTROL
+========================================================= */
+
+body.mobile .cursor-glow {
+
+    display: none;
+
+}
+
+
+body.mobile .project-card,
+body.mobile .skill-card {
+
+    transform:
+        none !important;
+
+}
+
+
+/* =========================================================
+   LIGHT THEME OVERRIDES
+========================================================= */
+
+body.light-theme .mobile-menu {
+
+    background:
+        rgba(245,245,245,.94);
+
+}
+
+
+body.light-theme .loader-logo {
+
+    border-color:
+        rgba(255,255,255,.2);
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
-<div class="page-loader" aria-hidden="true">
-  <div class="loader-inner">
-    <div class="loader-mark"><span>V</span></div>
-    <div class="loader-name">VaaYU<span>.</span></div>
-    <div class="loader-line"><span></span></div>
-    <div class="loader-status">BUILDING EXPERIENCE</div>
-  </div>
+<!-- =========================================================
+     BOOT SCREEN
+========================================================= -->
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-box">
+
+        <div class="loader-logo">
+            <span>V</span>
+        </div>
+
+        <div class="loader-title">
+            VaaYU<span>.</span>
+        </div>
+
+        <div class="loader-subtitle">
+            AUTOMATION / AI / BUILD
+        </div>
+
+        <div class="loader-track">
+            <span></span>
+        </div>
+
+    </div>
+
 </div>
 
 
-<!-- =====================================================
-     PASTE YOUR EXISTING BASE PORTFOLIO HTML HERE
-     Keep all existing sections/content exactly as-is:
-     Hero, About, Skills, Taara, Zaara, AutoMailerPro,
-     Contact, social icons and footer.
-===================================================== -->
+<!-- =========================================================
+     CURSOR
+========================================================= -->
+
+<div class="cursor-glow"></div>
+
+
+<!-- =========================================================
+     SCROLL PROGRESS
+========================================================= -->
+
+<div class="scroll-progress"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <a
+        href="#home"
+        class="logo"
+    >
+        VaaYU<span>.</span>
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <a
+        href="#contact"
+        class="nav-cta magnetic"
+    >
+        Let's talk
+
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+    </a>
+
+
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch to light theme"
+        aria-pressed="false"
+    >
+
+        <i class="fa-solid fa-sun"></i>
+
+    </button>
+
+
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+    >
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+</header>
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div class="mobile-menu">
+
+    <a href="#about">
+        About
+    </a>
+
+    <a href="#skills">
+        Skills
+    </a>
+
+    <a href="#projects">
+        Projects
+    </a>
+
+    <a href="#contact">
+        Contact
+    </a>
+
+</div>
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div class="hero-bg"></div>
+
+
+    <div class="hero-content reveal">
+
+        <div class="status-pill">
+
+            <span class="status-dot"></span>
+
+            Available for opportunities
+
+        </div>
+
+
+        <p class="eyebrow">
+            DEVELOPER • BUILDER • LEARNER
+        </p>
+
+
+        <h1>
+
+            Building things
+
+            <span>
+                worth exploring.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            I'm VaaYU — a developer exploring Python,
+            data analysis, automation and AI-powered projects.
+            I learn by building, breaking and rebuilding.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="btn btn-primary magnetic"
+            >
+
+                View projects
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="btn btn-secondary magnetic"
+            >
+
+                Get in touch
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- SOCIALS -->
+
+        <div class="hero-socials">
+
+            <a
+                href="https://github.com/i-vaayu18"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+            >
+
+                <i class="fa-brands fa-github"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+            >
+
+                <i class="fa-brands fa-linkedin-in"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/i.vaayu18/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+            <a
+                href="https://t.me/i_vaayu18"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+                title="Telegram"
+            >
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </a>
+
+
+            <a
+                href="mailto:manishsinghbora18@gmail.com"
+                aria-label="Gmail"
+                title="Gmail"
+            >
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll-hint">
+
+        <span></span>
+
+        Scroll to explore
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    id="about"
+    class="section"
+>
+
+    <div class="section-heading reveal">
+
+        <p class="eyebrow">
+            01 / ABOUT
+        </p>
+
+        <h2>
+
+            Curious by nature.
+
+            <span>
+                Builder by choice.
+            </span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text reveal">
+
+            <p>
+                I'm focused on learning Python, data analysis,
+                automation and modern AI technologies by actually
+                building projects.
+            </p>
+
+
+            <p>
+                Instead of chasing every new technology,
+                I prefer understanding the fundamentals,
+                experimenting with ideas and turning them
+                into something useful.
+            </p>
+
+
+            <p>
+                Every project is another opportunity to learn
+                something new.
+            </p>
+
+        </div>
+
+
+        <div class="about-stats reveal">
+
+            <div class="stat-card">
+
+                <span>
+                    01
+                </span>
+
+                <strong>
+                    Build
+                </strong>
+
+                <p>
+                    Ideas into working projects.
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    02
+                </span>
+
+                <strong>
+                    Learn
+                </strong>
+
+                <p>
+                    One concept at a time.
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    03
+                </span>
+
+                <strong>
+                    Improve
+                </strong>
+
+                <p>
+                    Keep iterating and experimenting.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section
+    id="skills"
+    class="section"
+>
+
+    <div class="section-heading reveal">
+
+        <p class="eyebrow">
+            02 / SKILLS
+        </p>
+
+        <h2>
+
+            Tools I use to
+
+            <span>
+                build things.
+            </span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+
+        <article class="skill-card reveal">
+
+            <div class="skill-icon">
+
+                <i class="fa-brands fa-python"></i>
+
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Building scripts, automation,
+                assistants and backend logic.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+            <div class="skill-icon">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <h3>
+                Data Analysis
+            </h3>
+
+            <p>
+                Exploring data with Pandas,
+                NumPy and Matplotlib.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+            <div class="skill-icon">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <h3>
+                AI & Automation
+            </h3>
+
+            <p>
+                Experimenting with OpenAI,
+                APIs and intelligent workflows.
+            </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+            <div class="skill-icon">
+
+                <i class="fa-brands fa-html5"></i>
+
+            </div>
+
+            <h3>
+                Web
+            </h3>
+
+            <p>
+                HTML, CSS and JavaScript
+                for interactive interfaces.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section
+    id="projects"
+    class="section projects-section"
+>
+
+    <div class="section-heading reveal">
+
+        <p class="eyebrow">
+            03 / PROJECTS
+        </p>
+
+        <h2>
+
+            Things I've
+
+            <span>
+                built.
+            </span>
+
+        </h2>
+
+        <p class="section-description">
+
+            A few experiments and projects that I'm
+            currently proud of.
+
+        </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- ================= TAARA ================= -->
+
+        <article class="project-card reveal">
+
+            <div class="project-top">
+
+                <div class="project-icon">
+
+                    <i class="fa-brands fa-telegram"></i>
+
+                </div>
+
+                <span class="project-number">
+                    01
+                </span>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-meta">
+                    PYTHON · TELEGRAM · OPENAI
+                </div>
+
+                <h3>
+                    Taara
+                </h3>
+
+                <p>
+                    Taara is a Telegram-based personal assistant
+                    built with Python, Telethon, and OpenAI.
+                </p>
+
+                <p>
+                    It works through a Telegram user account and
+                    can automatically respond to incoming messages
+                    using an AI-powered assistant personality.
+                </p>
+
+                <p>
+                    Taara is designed to behave like a natural
+                    personal assistant for VaaYU, while keeping
+                    normal conversations friendly and human-like.
+                </p>
+
+            </div>
+
+
+            <div class="project-footer">
+
+                <div class="tech-tags">
+
+                    <span>Python</span>
+                    <span>Telethon</span>
+                    <span>OpenAI</span>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/i-vaayu18/Taara---Personal-Assistant"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link magnetic"
+                >
+
+                    View repository
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- ================= ZAARA ================= -->
+
+        <article class="project-card reveal">
+
+            <div class="project-top">
+
+                <div class="project-icon">
+
+                    <i class="fa-brands fa-telegram"></i>
+
+                </div>
+
+                <span class="project-number">
+                    02
+                </span>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-meta">
+                    PYTHON · TELEGRAM · SQLITE · OPENAI
+                </div>
+
+                <h3>
+                    Zaara
+                </h3>
+
+                <p>
+                    A Telegram-based personal assistant focused
+                    on everyday organization and conversational
+                    interaction.
+                </p>
+
+                <p>
+                    Zaara combines Telegram, Python, SQLite and
+                    OpenAI to manage personal information while
+                    providing a natural conversational experience.
+                </p>
+
+            </div>
+
+
+            <div class="project-footer">
+
+                <div class="tech-tags">
+
+                    <span>Python</span>
+                    <span>SQLite</span>
+                    <span>OpenAI</span>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/i-vaayu18/Zaara"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link magnetic"
+                >
+
+                    View repository
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- ================= AUTOMAILER PRO ================= -->
+
+        <article class="project-card reveal">
+
+            <div class="project-top">
+
+                <div class="project-icon">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+
+                <span class="project-number">
+                    03
+                </span>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-meta">
+                    PYTHON · SMTP · EXCEL · AUTOMATION
+                </div>
+
+                <h3>
+                    AutoMailerPro
+                </h3>
+
+                <p>
+                    AutoMailerPro is a Python-based email automation
+                    tool designed to send personalized bulk emails
+                    directly from an Excel sheet.
+                </p>
+
+                <p>
+                    It supports Gmail SMTP, personalized messages,
+                    multiple attachments and configurable delays
+                    between emails for a simple and practical
+                    automation workflow.
+                </p>
+
+                <p>
+                    The project uses Gmail App Password authentication
+                    and provides a simple workflow for automating
+                    newsletters, announcements and reminders.
+                </p>
+
+            </div>
+
+
+            <div class="project-footer">
+
+                <div class="tech-tags">
+
+                    <span>Python</span>
+                    <span>Gmail SMTP</span>
+                    <span>Pandas</span>
+                    <span>OpenPyXL</span>
+
+                </div>
+
+
+                <a
+                    href="https://github.com/i-vaayu18/AutoMailerPro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link magnetic"
+                >
+
+                    View repository
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="github-projects reveal">
+
+        <p>
+            More experiments and repositories are available
+            on my GitHub.
+        </p>
+
+
+        <a
+            href="https://github.com/i-vaayu18"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-button magnetic"
+        >
+
+            <i class="fa-brands fa-github"></i>
+
+            Explore GitHub
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="section contact-section"
+>
+
+    <div class="section-heading reveal">
+
+        <p class="eyebrow">
+            04 / CONTACT
+        </p>
+
+        <h2>
+
+            Let's make
+
+            <span>
+                something cool.
+            </span>
+
+        </h2>
+
+        <p class="section-description">
+
+            Have an idea, want to collaborate, or simply
+            want to say hello? Pick your preferred way
+            to reach me.
+
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+        <!-- GITHUB -->
+
+        <a
+            href="https://github.com/i-vaayu18"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card reveal"
+        >
+
+            <div class="contact-icon">
+
+                <i class="fa-brands fa-github"></i>
+
+            </div>
+
+            <div class="contact-info">
+
+                <span>
+                    GitHub
+                </span>
+
+                <strong>
+                    @i-vaayu18
+                </strong>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a
+            href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card reveal"
+        >
+
+            <div class="contact-icon">
+
+                <i class="fa-brands fa-linkedin-in"></i>
+
+            </div>
+
+            <div class="contact-info">
+
+                <span>
+                    LinkedIn
+                </span>
+
+                <strong>
+                    Connect with me
+                </strong>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+
+        </a>
+
+
+        <!-- GMAIL -->
+
+        <a
+            href="mailto:manishsinghbora18@gmail.com"
+            class="contact-card reveal"
+        >
+
+            <div class="contact-icon">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </div>
+
+            <div class="contact-info">
+
+                <span>
+                    Gmail
+                </span>
+
+                <strong>
+                    manishsinghbora18@gmail.com
+                </strong>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://www.instagram.com/i.vaayu18/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card reveal"
+        >
+
+            <div class="contact-icon">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </div>
+
+            <div class="contact-info">
+
+                <span>
+                    Instagram
+                </span>
+
+                <strong>
+                    @i.vaayu18
+                </strong>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+
+        </a>
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            href="https://wa.me/919625178828"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card reveal"
+        >
+
+            <div class="contact-icon">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </div>
+
+            <div class="contact-info">
+
+                <span>
+                    WhatsApp
+                </span>
+
+                <strong>
+                    Chat with me
+                </strong>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+
+        </a>
+
+
+        <!-- TELEGRAM -->
+
+        <a
+            href="https://t.me/i_vaayu18"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card reveal"
+        >
+
+            <div class="contact-icon">
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </div>
+
+            <div class="contact-info">
+
+                <span>
+                    Telegram
+                </span>
+
+                <strong>
+                    @i_vaayu18
+                </strong>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+
+            <a
+                href="#home"
+                class="logo"
+            >
+                VaaYU<span>.</span>
+            </a>
+
+            <p>
+                Building. Learning. Experimenting.
+            </p>
+
+        </div>
+
+
+        <div class="footer-right">
+
+
+            <a
+                href="https://github.com/i-vaayu18"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+            >
+
+                <i class="fa-brands fa-github"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/manish-singh-bora-4073342a0"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+            >
+
+                <i class="fa-brands fa-linkedin-in"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/i.vaayu18/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+            <a
+                href="https://t.me/i_vaayu18"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+            >
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </a>
+
+
+            <a
+                href="mailto:manishsinghbora18@gmail.com"
+                class="footer-email"
+                aria-label="Gmail"
+            >
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="year"></span>
+            VaaYU. All rights reserved.
+        </p>
+
+        <p>
+            Made with curiosity ✦
+        </p>
+
+    </div>
+
+</footer>
 
 
 <script>
-document.addEventListener(
-            "DOMContentLoaded",
+
+/* =========================================================
+   VaaYU — FUTURISTIC INTERACTIVE ENGINE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const body =
+        document.body;
+
+    const navbar =
+        document.querySelector(".navbar");
+
+    const progress =
+        document.querySelector(".scroll-progress");
+
+    const cursorGlow =
+        document.querySelector(".cursor-glow");
+
+    const loader =
+        document.querySelector("#pageLoader");
+
+    const themeToggle =
+        document.querySelector("#themeToggle");
+
+    const menuToggle =
+        document.querySelector(".menu-toggle");
+
+    const mobileMenu =
+        document.querySelector(".mobile-menu");
+
+    const year =
+        document.querySelector("#year");
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    function updateMobile() {
+
+        body.classList.toggle(
+            "mobile",
+            window.innerWidth < 768
+        );
+
+    }
+
+    updateMobile();
+
+    window.addEventListener(
+        "resize",
+        updateMobile,
+        { passive: true }
+    );
+
+
+    /* =====================================================
+       LOADER
+    ===================================================== */
+
+    const hideLoader = () => {
+
+        if (!loader) return;
+
+        setTimeout(() => {
+
+            loader.classList.add("loaded");
+
+        }, 1450);
+
+    };
+
+
+    if (
+        document.readyState ===
+        "complete"
+    ) {
+
+        hideLoader();
+
+    } else {
+
+        window.addEventListener(
+            "load",
+            hideLoader,
+            { once: true }
+        );
+
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    function updateNavbar() {
+
+        if (!navbar) return;
+
+        navbar.classList.toggle(
+            "scrolled",
+            window.scrollY > 40
+        );
+
+    }
+
+    updateNavbar();
+
+
+    /* =====================================================
+       SCROLL PROGRESS
+    ===================================================== */
+
+    function updateProgress() {
+
+        if (!progress) return;
+
+        const scrollTop =
+            window.scrollY;
+
+        const total =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        const percentage =
+            total > 0
+                ? (scrollTop / total) * 100
+                : 0;
+
+        progress.style.width =
+            `${Math.min(100, Math.max(0, percentage))}%`;
+
+    }
+
+
+    /* =====================================================
+       RAF SCROLL ENGINE
+    ===================================================== */
+
+    let scrollTicking = false;
+
+    function onScroll() {
+
+        if (scrollTicking) return;
+
+        scrollTicking = true;
+
+        requestAnimationFrame(() => {
+
+            updateNavbar();
+
+            updateProgress();
+
+            scrollTicking = false;
+
+        });
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        onScroll,
+        { passive: true }
+    );
+
+
+    updateProgress();
+
+
+    /* =====================================================
+       THEME
+    ===================================================== */
+
+    const THEME_KEY =
+        "portfolio-theme";
+
+
+    function applyTheme(theme) {
+
+        const light =
+            theme === "light";
+
+        body.classList.toggle(
+            "light-theme",
+            light
+        );
+
+        if (themeToggle) {
+
+            const icon =
+                themeToggle.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.toggle(
+                    "fa-sun",
+                    !light
+                );
+
+                icon.classList.toggle(
+                    "fa-moon",
+                    light
+                );
+
+            }
+
+            themeToggle.setAttribute(
+                "aria-pressed",
+                String(light)
+            );
+
+            themeToggle.setAttribute(
+                "aria-label",
+                light
+                    ? "Switch to dark theme"
+                    : "Switch to light theme"
+            );
+
+        }
+
+    }
+
+
+    let theme =
+        localStorage.getItem(
+            THEME_KEY
+        ) || "dark";
+
+
+    if (
+        theme !== "light" &&
+        theme !== "dark"
+    ) {
+
+        theme = "dark";
+
+    }
+
+
+    applyTheme(theme);
+
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener(
+            "click",
             () => {
 
-                /* PREMIUM PAGE LOADER */
-                const pageLoader = document.querySelector(".page-loader");
-
-                window.addEventListener("load", () => {
-                    window.setTimeout(() => {
-                        document.body.classList.add("page-ready");
-                        if (pageLoader) pageLoader.classList.add("loaded");
-                    }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 50 : 850);
-                }, { once: true });
+                theme =
+                    body.classList.contains(
+                        "light-theme"
+                    )
+                        ? "dark"
+                        : "light";
 
 
-
-
-                /* =================================================
-                   ELEMENTS
-                ================================================== */
-
-                const body =
-                    document.body;
-
-                const navbar =
-                    document.querySelector(".navbar");
-
-                const progress =
-                    document.querySelector(
-                        ".scroll-progress"
-                    );
-
-                const cursorGlow =
-                    document.querySelector(
-                        ".cursor-glow"
-                    );
-
-                const themeToggle =
-                    document.querySelector(
-                        "#themeToggle"
-                    );
-
-                const menuToggle =
-                    document.querySelector(
-                        "#menuToggle"
-                    );
-
-                const mobileMenu =
-                    document.querySelector(
-                        "#mobileMenu"
-                    );
-
-                const year =
-                    document.querySelector(
-                        "#year"
-                    );
-
-
-                /* =================================================
-                   YEAR
-                ================================================== */
-
-                if (year) {
-
-                    year.textContent =
-                        new Date()
-                            .getFullYear();
-
-                }
-
-
-                /* =================================================
-                   NAVBAR
-                ================================================== */
-
-                function updateNavbar() {
-
-                    if (!navbar) return;
-
-                    navbar.classList.toggle(
-                        "scrolled",
-                        window.scrollY > 40
-                    );
-
-                }
-
-
-                updateNavbar();
-
-
-                window.addEventListener(
-                    "scroll",
-                    updateNavbar,
-                    { passive: true }
+                localStorage.setItem(
+                    THEME_KEY,
+                    theme
                 );
 
 
-                /* =================================================
-                   SCROLL PROGRESS
-                ================================================== */
+                applyTheme(theme);
 
-                function updateProgress() {
 
-                    if (!progress) return;
-
-                    const scrollTop =
-                        window.scrollY;
-
-                    const scrollable =
-                        document.documentElement
-                            .scrollHeight -
-                        window.innerHeight;
-
-                    const percentage =
-                        scrollable > 0
-                            ? (
-                                scrollTop /
-                                scrollable
-                            ) * 100
-                            : 0;
-
-                    progress.style.width =
-                        `${Math.min(
-                            100,
-                            Math.max(
-                                0,
-                                percentage
-                            )
-                        )}%`;
-
-                }
-
-
-                updateProgress();
-
-
-                window.addEventListener(
-                    "scroll",
-                    updateProgress,
-                    { passive: true }
-                );
-
-
-                window.addEventListener(
-                    "resize",
-                    updateProgress
-                );
-
-
-                /* =================================================
-                   THEME
-                ================================================== */
-
-                const THEME_KEY =
-                    "portfolio-theme";
-
-
-                function applyTheme(theme) {
-
-                    const light =
-                        theme === "light";
-
-
-                    body.classList.toggle(
-                        "light-theme",
-                        light
-                    );
-
-
-                    if (themeToggle) {
-
-                        const icon =
-                            themeToggle
-                                .querySelector("i");
-
-
-                        if (icon) {
-
-                            icon.classList.toggle(
-                                "fa-sun",
-                                !light
-                            );
-
-                            icon.classList.toggle(
-                                "fa-moon",
-                                light
-                            );
-
-                        }
-
-
-                        themeToggle.setAttribute(
-                            "aria-pressed",
-                            String(light)
-                        );
-
-
-                        themeToggle.setAttribute(
-                            "aria-label",
-                            light
-                                ? "Switch to dark theme"
-                                : "Switch to light theme"
-                        );
-
-
-                        themeToggle.setAttribute(
-                            "title",
-                            light
-                                ? "Switch to dark theme"
-                                : "Switch to light theme"
-                        );
-
-                    }
-
-                }
-
-
-                const savedTheme =
-                    localStorage.getItem(
-                        THEME_KEY
-                    );
-
-
-                let currentTheme =
-                    savedTheme === "light"
-                        ? "light"
-                        : "dark";
-
-
-                applyTheme(
-                    currentTheme
-                );
-
-
-                if (themeToggle) {
-
-                    themeToggle.addEventListener(
-                        "click",
-                        () => {
-
-                            currentTheme =
-                                body.classList.contains(
-                                    "light-theme"
-                                )
-                                    ? "dark"
-                                    : "light";
-
-
-                            localStorage.setItem(
-                                THEME_KEY,
-                                currentTheme
-                            );
-
-
-                            applyTheme(
-                                currentTheme
-                            );
-
-                        }
-                    );
-
-                }
-
-
-                /* =================================================
-                   MOBILE MENU
-                ================================================== */
-
-                function closeMobileMenu() {
-
-                    if (!mobileMenu) return;
-
-                    mobileMenu.classList.remove(
-                        "open"
-                    );
-
-
-                    if (menuToggle) {
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Open menu"
-                        );
-
-
-                        const icon =
-                            menuToggle
-                                .querySelector("i");
-
-
-                        if (icon) {
-
-                            icon.classList.remove(
-                                "fa-xmark"
-                            );
-
-                            icon.classList.add(
-                                "fa-bars"
-                            );
-
-                        }
-
-                    }
-
-                }
-
-
-                function openMobileMenu() {
-
-                    if (!mobileMenu) return;
-
-                    mobileMenu.classList.add(
-                        "open"
-                    );
-
-
-                    if (menuToggle) {
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "true"
-                        );
-
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Close menu"
-                        );
-
-
-                        const icon =
-                            menuToggle
-                                .querySelector("i");
-
-
-                        if (icon) {
-
-                            icon.classList.remove(
-                                "fa-bars"
-                            );
-
-                            icon.classList.add(
-                                "fa-xmark"
-                            );
-
-                        }
-
-                    }
-
-                }
-
-
-                if (menuToggle) {
-
-                    menuToggle.addEventListener(
-                        "click",
-                        (event) => {
-
-                            event.stopPropagation();
-
-
-                            if (
-                                mobileMenu &&
-                                mobileMenu.classList.contains(
-                                    "open"
-                                )
-                            ) {
-
-                                closeMobileMenu();
-
-                            } else {
-
-                                openMobileMenu();
-
-                            }
-
-                        }
-                    );
-
-                }
-
-
-                if (mobileMenu) {
-
-                    mobileMenu
-                        .querySelectorAll("a")
-                        .forEach(
-                            (link) => {
-
-                                link.addEventListener(
-                                    "click",
-                                    closeMobileMenu
-                                );
-
-                            }
-                        );
-
-                }
-
-
-                document.addEventListener(
-                    "click",
-                    (event) => {
-
-                        if (
-                            !mobileMenu ||
-                            !menuToggle
-                        ) {
-                            return;
-                        }
-
-
-                        if (
-                            mobileMenu.classList.contains(
-                                "open"
-                            ) &&
-                            !mobileMenu.contains(
-                                event.target
-                            ) &&
-                            !menuToggle.contains(
-                                event.target
-                            )
-                        ) {
-
-                            closeMobileMenu();
-
-                        }
-
-                    }
-                );
-
-
-                document.addEventListener(
-                    "keydown",
-                    (event) => {
-
-                        if (
-                            event.key === "Escape"
-                        ) {
-
-                            closeMobileMenu();
-
-                        }
-
-                    }
-                );
-
-
-                window.addEventListener(
-                    "resize",
-                    () => {
-
-                        if (
-                            window.innerWidth > 768
-                        ) {
-
-                            closeMobileMenu();
-
-                        }
-
-                    }
-                );
-
-
-                /* =================================================
-                   REVEAL
-                ================================================== */
-
-                const revealElements =
-                    document.querySelectorAll(
-                        ".reveal"
-                    );
-
-
-                if (
-                    "IntersectionObserver"
-                    in window
-                ) {
-
-                    const observer =
-                        new IntersectionObserver(
-                            (
-                                entries,
-                                obs
-                            ) => {
-
-                                entries.forEach(
-                                    (entry) => {
-
-                                        if (
-                                            entry.isIntersecting
-                                        ) {
-
-                                            entry.target
-                                                .classList
-                                                .add(
-                                                    "visible"
-                                                );
-
-
-                                            obs.unobserve(
-                                                entry.target
-                                            );
-
-                                        }
-
-                                    }
-                                );
-
-                            },
-                            {
-                                threshold: .12,
-                                rootMargin:
-                                    "0px 0px -40px 0px"
-                            }
-                        );
-
-
-                    revealElements.forEach(
-                        (element) => {
-
-                            observer.observe(
-                                element
-                            );
-
-                        }
-                    );
-
-                } else {
-
-                    revealElements.forEach(
-                        (element) => {
-
-                            element.classList.add(
-                                "visible"
-                            );
-
-                        }
-                    );
-
-                }
-
-
-                /* =================================================
-                   PROJECT TILT
-                ================================================== */
-
-                const cards =
-                    document.querySelectorAll(
-                        ".project-card, .skill-card"
-                    );
-
-
-                cards.forEach(
-                    (card) => {
-
-                        card.addEventListener(
-                            "mousemove",
-                            (event) => {
-
-                                if (
-                                    window.innerWidth <
-                                    768
-                                ) {
-                                    return;
-                                }
-
-
-                                const rect =
-                                    card.getBoundingClientRect();
-
-
-                                const x =
-                                    (
-                                        event.clientX -
-                                        rect.left
-                                    ) / rect.width;
-
-
-                                const y =
-                                    (
-                                        event.clientY -
-                                        rect.top
-                                    ) / rect.height;
-
-
-                                const rotateX =
-                                    (
-                                        .5 - y
-                                    ) * 3;
-
-
-                                const rotateY =
-                                    (
-                                        x - .5
-                                    ) * 3;
-
-
-                                card.classList.add("tilting");
-
-                                card.style.transform =
-                                    `
-                                    perspective(1100px)
-                                    rotateX(${rotateX}deg)
-                                    rotateY(${rotateY}deg)
-                                    translateY(-4px)
-                                    `;
-
-                            }
-                        );
-
-
-                        card.addEventListener(
-                            "mouseleave",
-                            () => {
-
-                                card.style.transform =
-                                    "";
-                                card.classList.remove("tilting");
-
-                            }
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   MAGNETIC BUTTONS
-                ================================================== */
-
-                const magnetic =
-                    document.querySelectorAll(
-                        ".magnetic"
-                    );
-
-
-                magnetic.forEach(
-                    (element) => {
-
-                        element.addEventListener(
-                            "mousemove",
-                            (event) => {
-
-                                if (
-                                    window.innerWidth <
-                                    768
-                                ) {
-                                    return;
-                                }
-
-
-                                const rect =
-                                    element
-                                        .getBoundingClientRect();
-
-
-                                const x =
-                                    event.clientX -
-                                    (
-                                        rect.left +
-                                        rect.width / 2
-                                    );
-
-
-                                const y =
-                                    event.clientY -
-                                    (
-                                        rect.top +
-                                        rect.height / 2
-                                    );
-
-
-                                element.style.transform =
-                                    `
-                                    translate(
-                                        ${x * .06}px,
-                                        ${y * .06}px
-                                    )
-                                    `;
-
-                            }
-                        );
-
-
-                        element.addEventListener(
-                            "mouseleave",
-                            () => {
-
-                                element.style.transform =
-                                    "";
-
-                            }
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   CURSOR GLOW
-                ================================================== */
-
-                if (
-                    cursorGlow &&
-                    window.matchMedia(
-                        "(pointer: fine)"
-                    ).matches
-                ) {
-
-                    let x =
-                        window.innerWidth / 2;
-
-                    let y =
-                        window.innerHeight / 2;
-
-
-                    let targetX =
-                        x;
-
-                    let targetY =
-                        y;
-
-
-                    window.addEventListener(
-                        "mousemove",
-                        (event) => {
-
-                            targetX =
-                                event.clientX;
-
-                            targetY =
-                                event.clientY;
-
+                themeToggle.animate(
+                    [
+                        {
+                            transform:
+                                "rotate(0deg) scale(1)"
                         },
-                        { passive: true }
-                    );
-
-
-                    function animateGlow() {
-
-                        x +=
-                            (
-                                targetX - x
-                            ) * .1;
-
-
-                        y +=
-                            (
-                                targetY - y
-                            ) * .1;
-
-
-                        cursorGlow.style.left =
-                            `${x}px`;
-
-                        cursorGlow.style.top =
-                            `${y}px`;
-
-
-                        requestAnimationFrame(
-                            animateGlow
-                        );
-
+                        {
+                            transform:
+                                "rotate(180deg) scale(.8)"
+                        },
+                        {
+                            transform:
+                                "rotate(360deg) scale(1)"
+                        }
+                    ],
+                    {
+                        duration: 500,
+                        easing:
+                            "cubic-bezier(.2,.8,.2,1)"
                     }
-
-
-                    animateGlow();
-
-                }
-
-
-                /* =================================================
-                   SMOOTH ANCHORS
-                ================================================== */
-
-                document
-                    .querySelectorAll(
-                        'a[href^="#"]'
-                    )
-                    .forEach(
-                        (link) => {
-
-                            link.addEventListener(
-                                "click",
-                                (event) => {
-
-                                    const id =
-                                        link.getAttribute(
-                                            "href"
-                                        );
-
-
-                                    if (
-                                        !id ||
-                                        id === "#"
-                                    ) {
-                                        return;
-                                    }
-
-
-                                    const target =
-                                        document.querySelector(
-                                            id
-                                        );
-
-
-                                    if (!target) {
-                                        return;
-                                    }
-
-
-                                    event.preventDefault();
-
-
-                                    const navbarHeight =
-                                        navbar
-                                            ? navbar
-                                                .offsetHeight
-                                            : 0;
-
-
-                                    const top =
-                                        target
-                                            .getBoundingClientRect()
-                                            .top +
-                                        window.scrollY -
-                                        navbarHeight -
-                                        10;
-
-
-                                    window.scrollTo({
-                                        top,
-                                        behavior:
-                                            "smooth"
-                                    });
-
-                                }
-                            );
-
-                        }
-                    );
-
-
-                /* =================================================
-                   EXTERNAL LINK SECURITY
-                ================================================== */
-
-                document
-                    .querySelectorAll(
-                        'a[target="_blank"]'
-                    )
-                    .forEach(
-                        (link) => {
-
-                            link.setAttribute(
-                                "rel",
-                                "noopener noreferrer"
-                            );
-
-                        }
-                    );
-
+                );
 
             }
         );
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    function closeMenu() {
+
+        if (!mobileMenu) return;
+
+        mobileMenu.classList.remove(
+            "open"
+        );
+
+        if (menuToggle) {
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open menu"
+            );
+
+            const icon =
+                menuToggle.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+
+        }
+
+    }
+
+
+    function openMenu() {
+
+        if (!mobileMenu) return;
+
+        mobileMenu.classList.add(
+            "open"
+        );
+
+        if (menuToggle) {
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Close menu"
+            );
+
+            const icon =
+                menuToggle.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+            }
+
+        }
+
+    }
+
+
+    if (menuToggle) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                const open =
+                    mobileMenu &&
+                    mobileMenu.classList.contains(
+                        "open"
+                    );
+
+                open
+                    ? closeMenu()
+                    : openMenu();
+
+            }
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(".mobile-menu a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                closeMenu
+            );
+
+        });
+
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                !mobileMenu ||
+                !menuToggle
+            ) return;
+
+            if (
+                mobileMenu.classList.contains("open") &&
+                !mobileMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 950
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        "visible"
+                                    );
+
+                                revealObserver
+                                    .unobserve(
+                                        entry.target
+                                    );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .12,
+
+                    rootMargin:
+                        "0px 0px -50px 0px"
+                }
+            );
+
+
+        revealElements.forEach(
+            element => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+    } else {
+
+        revealElements.forEach(
+            element => {
+
+                element.classList.add(
+                    "visible"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       STAGGER PROJECTS / SKILLS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".skills-grid .skill-card, .projects-grid .project-card, .contact-grid .contact-card"
+        )
+        .forEach(
+            (element, index) => {
+
+                element.style.transitionDelay =
+                    `${Math.min(index * 70, 350)}ms`;
+
+            }
+        );
+
+
+    /* =====================================================
+       3D PROJECT TILT
+    ===================================================== */
+
+    const cards =
+        document.querySelectorAll(
+            ".project-card, .skill-card"
+        );
+
+
+    cards.forEach(card => {
+
+        let frame = null;
+
+
+        card.addEventListener(
+            "mousemove",
+            event => {
+
+                if (
+                    window.innerWidth < 768 ||
+                    body.classList.contains("mobile")
+                ) return;
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width;
+
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height;
+
+
+                const rotateY =
+                    (x - .5) *
+                    (card.classList.contains("skill-card")
+                        ? 5
+                        : 4);
+
+
+                const rotateX =
+                    (.5 - y) *
+                    (card.classList.contains("skill-card")
+                        ? 5
+                        : 4);
+
+
+                if (frame) {
+
+                    cancelAnimationFrame(frame);
+
+                }
+
+
+                frame =
+                    requestAnimationFrame(
+                        () => {
+
+                            card.style.transform =
+                                `
+                                perspective(1200px)
+                                rotateX(${rotateX}deg)
+                                rotateY(${rotateY}deg)
+                                translateY(-5px)
+                                `;
+
+                        }
+                    );
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                if (frame) {
+
+                    cancelAnimationFrame(
+                        frame
+                    );
+
+                }
+
+                card.style.transform = "";
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       MAGNETIC BUTTONS
+    ===================================================== */
+
+    const magneticElements =
+        document.querySelectorAll(
+            ".magnetic"
+        );
+
+
+    magneticElements.forEach(
+        element => {
+
+            element.addEventListener(
+                "mousemove",
+                event => {
+
+                    if (
+                        window.innerWidth < 768 ||
+                        body.classList.contains("mobile")
+                    ) return;
+
+
+                    const rect =
+                        element.getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX -
+                        (
+                            rect.left +
+                            rect.width / 2
+                        );
+
+
+                    const y =
+                        event.clientY -
+                        (
+                            rect.top +
+                            rect.height / 2
+                        );
+
+
+                    element.style.transform =
+                        `
+                        translate(
+                            ${x * .08}px,
+                            ${y * .08}px
+                        )
+                        `;
+
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+
+                    element.style.transform =
+                        "";
+
+                }
+            );
+
+
+            element.addEventListener(
+                "click",
+                () => {
+
+                    element.classList.add(
+                        "clicked"
+                    );
+
+                    setTimeout(
+                        () => {
+
+                            element.classList.remove(
+                                "clicked"
+                            );
+
+                        },
+                        400
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CURSOR GLOW
+    ===================================================== */
+
+    if (
+        cursorGlow &&
+        window.matchMedia(
+            "(pointer:fine)"
+        ).matches
+    ) {
+
+        let currentX =
+            window.innerWidth / 2;
+
+        let currentY =
+            window.innerHeight / 2;
+
+        let targetX =
+            currentX;
+
+        let targetY =
+            currentY;
+
+
+        window.addEventListener(
+            "mousemove",
+            event => {
+
+                targetX =
+                    event.clientX;
+
+                targetY =
+                    event.clientY;
+
+            },
+            { passive: true }
+        );
+
+
+        function animateCursor() {
+
+            currentX +=
+                (
+                    targetX -
+                    currentX
+                ) * .12;
+
+
+            currentY +=
+                (
+                    targetY -
+                    currentY
+                ) * .12;
+
+
+            cursorGlow.style.left =
+                `${currentX}px`;
+
+            cursorGlow.style.top =
+                `${currentY}px`;
+
+
+            requestAnimationFrame(
+                animateCursor
+            );
+
+        }
+
+
+        animateCursor();
+
+    }
+
+
+    /* =====================================================
+       SOCIAL HOVER
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".hero-socials a, .footer-right a"
+        )
+        .forEach(
+            social => {
+
+                social.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        social.style.boxShadow =
+                            `
+                            0 10px 35px
+                            rgba(255,255,255,.07)
+                            `;
+
+                    }
+                );
+
+
+                social.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        social.style.boxShadow =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       CONTACT CARDS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".contact-card"
+        )
+        .forEach(
+            card => {
+
+                card.addEventListener(
+                    "mousemove",
+                    event => {
+
+                        if (
+                            window.innerWidth < 768
+                        ) return;
+
+
+                        const rect =
+                            card.getBoundingClientRect();
+
+
+                        const x =
+                            (
+                                event.clientX -
+                                rect.left
+                            ) /
+                            rect.width;
+
+
+                        const y =
+                            (
+                                event.clientY -
+                                rect.top
+                            ) /
+                            rect.height;
+
+
+                        const moveX =
+                            (x - .5) * 5;
+
+
+                        const moveY =
+                            (y - .5) * 5;
+
+
+                        card.style.transform =
+                            `
+                            translate(
+                                ${moveX}px,
+                                ${moveY - 5}px
+                            )
+                            `;
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        card.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       SMOOTH ANCHOR SCROLL
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(
+            link => {
+
+                link.addEventListener(
+                    "click",
+                    event => {
+
+                        const id =
+                            link.getAttribute(
+                                "href"
+                            );
+
+
+                        if (
+                            !id ||
+                            id === "#"
+                        ) return;
+
+
+                        const target =
+                            document.querySelector(
+                                id
+                            );
+
+
+                        if (!target) return;
+
+
+                        event.preventDefault();
+
+
+                        const navHeight =
+                            navbar
+                                ? navbar.offsetHeight
+                                : 0;
+
+
+                        const top =
+                            target
+                                .getBoundingClientRect()
+                                .top +
+                            window.scrollY -
+                            navHeight;
+
+
+                        window.scrollTo({
+
+                            top,
+
+                            behavior:
+                                "smooth"
+
+                        });
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       DYNAMIC YEAR
+    ===================================================== */
+
+    if (year) {
+
+        year.textContent =
+            new Date()
+                .getFullYear();
+
+    }
+
+
+    /* =====================================================
+       ESCAPE
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIAL UPDATE
+    ===================================================== */
+
+    requestAnimationFrame(
+        () => {
+
+            updateNavbar();
+
+            updateProgress();
+
+        }
+    );
+
+
+});
 
 </script>
 
